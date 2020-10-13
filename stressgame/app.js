@@ -27,7 +27,7 @@ class Deck {
 const suits = ['clubs', 'diamonds', 'hearts', 'spades']
 
 // color: red and black
-const cardColor = ['red', 'black']
+const cardColor = ['black', 'red']
 
 // ranks: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K
 const ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
@@ -45,21 +45,25 @@ const deck = []
 const createDeck = () => {
     // use a loop to fill the deck array with card objects
     // first loop give card is color
-    for (let i = 0; i < cardColor.length; i++) {
+    // for (let i = 0; i < cardColor.length; i++) {
         // first loop creates the card suit
         for (let j = 0; j < suits.length; j++) {
             // second loop creates the card value
             for (let k = 0; k < ranks.length; k++) {
-                const deckCreation = new Deck(suits[j], ranks[k], cardColor[i])
-                deck.push(deckCreation)
+                if(suits[j] === 'clubs' || suits[j] === 'spades') {
+                    let suitColor = cardColor[0]
+                    const deckCreation = new Deck(suits[j], ranks[k], suitColor)
+                    deck.push(deckCreation)
+                } else {
+                    suitColor = cardColor[1]
+                    const deckCreation = new Deck(suits[j], ranks[k], suitColor)
+                    deck.push(deckCreation)
+                }
             }
         }
-    }
+    // }
 }
 createDeck()
-console.log(deck)
-//I need to check and verify that all cardsa are there and the colors are correct
-
 
 
 //  create a shuffle function
