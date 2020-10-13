@@ -12,7 +12,7 @@
 ////////////////
 // Class Deck, creates outline for deck of cards
 ////////////////
-class Card {
+class Card { // holds outline for a card
     constructor (suit, rank, color) {
         this.suit = suit
         this.rank = rank
@@ -38,7 +38,7 @@ const deck = []
 ////////////////
 // Function creates deck
 ////////////////
-const createDeck = () => {
+const createDeck = () => { // instantiates each card in deck
     // use a loop to fill the deck array with card objects
     // first loop creates the card suit
     for (let j = 0; j < suits.length; j++) {
@@ -63,7 +63,7 @@ createDeck()
 ////////////////
 // Function re sizes deck baised on playing mode
 ////////////////
-const deckSizer = () => {
+const deckSizer = () => { // returns resized deck array ofr player mode
     let playersMode = prompt('what mode do you want to play in Mult-player or Single player? Type Single or Mult below')
     // resizes deck for multi player mode elss if single player mode
     if (playersMode === 'Mult' || playersMode === 'mult') {
@@ -80,14 +80,26 @@ const deckSizer = () => {
     }
 }
 let playingDeck = deckSizer()
-console.log(playingDeck)
 
 ////////////////
-// Function re sizes deck baised on playing mode
+// Function Shuffles Deck
 ////////////////
-//  create a shuffle function
+const shuffleDeck = () => { // returns shuffled playingcards array
+    // one loop shuffles once 
+    for (let i = 0; i < 500; i++) {
+        let firstCard = Math.floor(Math.random() * playingDeck.length)
+        let secondCard = Math.floor(Math.random() * playingDeck.length)
+        let hold = playingDeck[firstCard]
 
+        // swaps card from the first position to the second position
+        playingDeck[firstCard] =playingDeck[secondCard] 
+        //swaps card from the secons position the the first position
+        playingDeck[secondCard] = hold
 
+    }
+    return playingDeck
+}
+shuffleDeck()
 
 // create a deal function
     // for multiplayer or single player
