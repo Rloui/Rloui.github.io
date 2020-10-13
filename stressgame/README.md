@@ -1,26 +1,3 @@
-Diretions 
-
-// You have a deck of 28 cards with seven sets of 4, numbers matching
-
-// You take those cards and deal 6 piles of 4 cards
-
-// You take the last 4 and put those in the middle
-
-// Then the game begins
-
-// User selects a deck and files the deck upside down
-
-// User compares cards in hand to the cards to chose from if they want a card then they select the card that they want to trade and the card they want from the middle and they switch
-
-// User does this as many times as they want for the cards in their hand 
-
-// When the user is done they put that hand face down and then they move on and repeat it with the next hand 
-
-// When the user has a match they put the cards back down and flip it up
-
-// When all the decks are faced up they put tap all the decks and say stress and they win the game
-
-
 Friday:
 - choose project Idea
 
@@ -49,3 +26,38 @@ Thursday:
 
 Friday: 
 - reveiw game
+
+Chosing Data Structure
+- for the cards an object should be used be cause it will have three properties, keys: color, suit, and values
+- use a class to create the blueprint for each card object
+Directions
+Goal: be the first to match each deck of 4 cards with the same value
+
+The Set up
+- multiplayer
+1. Shuffle a deck of 52 cards
+2. deal out 13 piles of 4
+4. each player gets 6 piles of 4 cards
+3. flip the last pile up so that it is visable
+
+-single player
+1. cut deck of 52 to 28 cards
+2. Shuffle a deck of 28 cards
+3. deal out 7 piles of 4
+4. player gets 6 piles of 4 cards
+5. flip the last pile up so that it is visable
+
+Gameplay
+5. count douwn from 3 and the game begins
+6. each player picks up one deck at a time and flips it up
+7. player compares hand to cards availible in the middle
+8. player discards first and then picks up the card they need and does this as many times as     they want for each hand
+9. player puts current deck back face down
+10. player repeats this for all other deck until all their decks match
+
+Winning
+11. when player has a set of 4 that match they flip that pile up
+12. player verifies they have all matching cards in all piles
+13. player taps all piles
+14. player yells stress
+15. player won the game it they beat the other person or the time

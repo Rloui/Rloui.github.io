@@ -1,24 +1,47 @@
-if (typeof $ == 'undefined'){
-    console.log('oops! I still have to link my jQuery properly!');
-  } else {console.log('I did it! I linked jQuery and this js file properly!')};
 // Pseudo Code
 
-// You have a deck of 28 cards with seven sets of 4, numbers matching
+// create the 52 cards in the deck to be played with
 
-// You take those cards and deal 6 piles of 4 cards
+// create a class for the outline of each card with a constructor
 
-// You take the last 4 and put those in the middle
+// constructor valuses color, suit, and values
 
-// Then the game begins
+// suits: hearts, diamonds, clubs, spades
 
-// User selects a deck and files the deck upside down
+// color: red and black
 
-// User compares cards in hand to the cards to chose from if they want a card then they select the card that they want to trade and the card they want from the middle and they switch
+// values: A, 1, 2, 3, 4, 5, 6, 7, 8, 9, J, Q, K
 
-// User does this as many times as they want for the cards in their hand 
+// create an array to hold the deck
 
-// When the user is done they put that hand face down and then they move on and repeat it with the next hand 
+// create a render deck function
 
-// When the user has a match they put the cards back down and flip it up
+    // use a loop to fill the deck array with card objects
+    // first loop creates the card suit
+        // second loop creates the card value
 
-// When all the decks are faced up they put tap all the decks and say stress and they win the game
+//  create a shuffle function
+
+// create a deal function
+    // for multiplayer or single player
+    // of it works for both
+
+// create deck flip up function
+
+// create deck flip down function
+
+// create count down function
+
+// create a player selcection/comparison function
+    // potentially not needed
+
+// create winn logic
+    // if player filps all decks up display stress
+    // check finctuion checking all the deck
+    // display all matched or unmatched
+    // diplay win or loss
+
+
+// $(() => {
+
+// })
