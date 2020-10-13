@@ -1,3 +1,6 @@
+// $(() => {
+
+// })
 // Pseudo Code
 
 // create the 52 cards in the deck to be played with
@@ -6,19 +9,58 @@
 
 // constructor valuses color, suit, and values
 
+////////////////
+// Class Deck, creates outline for deck of cards
+////////////////
+class Deck {
+    constructor (suit, rank, color) {
+        this.suit = suit
+        this.rank = rank
+        this.color = color
+    }
+}
+
+////////////////
+// Arrays for card info
+////////////////
 // suits: hearts, diamonds, clubs, spades
+const suits = ['clubs', 'diamonds', 'hearts', 'spades']
 
 // color: red and black
+const cardColor = ['red', 'black']
 
-// values: A, 1, 2, 3, 4, 5, 6, 7, 8, 9, J, Q, K
+// ranks: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K
+const ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
 
+////////////////
+// Array to hold deck
+////////////////
 // create an array to hold the deck
+const deck = []
 
+////////////////
+// Function creates deck
+////////////////
 // create a render deck function
-
+const createDeck = () => {
     // use a loop to fill the deck array with card objects
-    // first loop creates the card suit
-        // second loop creates the card value
+    // first loop give card is color
+    for (let i = 0; i < cardColor.length; i++) {
+        // first loop creates the card suit
+        for (let j = 0; j < suits.length; j++) {
+            // second loop creates the card value
+            for (let k = 0; k < ranks.length; k++) {
+                const deckCreation = new Deck(suits[j], ranks[k], cardColor[i])
+                deck.push(deckCreation)
+            }
+        }
+    }
+}
+createDeck()
+console.log(deck)
+//I need to check and verify that all cardsa are there and the colors are correct
+
+
 
 //  create a shuffle function
 
@@ -40,8 +82,3 @@
     // check finctuion checking all the deck
     // display all matched or unmatched
     // diplay win or loss
-
-
-// $(() => {
-
-// })
