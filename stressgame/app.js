@@ -28,7 +28,7 @@ class Player {
 	constructor(name) {
 		this.name = name
 	}
-	1 = []
+	pileOne = []
 	pileTwo = []
 	pileThree = []
 	pileFour = []
@@ -163,14 +163,20 @@ const dealMiddleCards = () => {
 ////////////////
 // Function Swaps User card choice with middle card
 ////////////////
-// const swap = (middleIndex, pile, handIndex) => {
-// 	let firstCard = middleCards[middleIndex] // is now player ones card
-// 	let secondCard = playerOne.pile`${pile}`[handIndex] // is not middle card
-// 	let hold = firstCard
+const swap = (middleIndex, cardIndex) => {
+	let firstCard = middleCards[middleIndex] // is now player ones card
+	let secondCard = playerOne.pileOne[cardIndex] // is now middle card
+	let hold = firstCard
 
-// 	firstCard = secondCard
-// 	secondCard = hold
-// }
+	// console.log(secondCard)
+	// console.log(firstCard)
+
+	firstCard = secondCard
+	secondCard = hold
+
+	// console.log(secondCard)
+	// console.log(firstCard)
+}
 // create a swap function
 // const swap = () => {
 // use splice and push into the new array
@@ -178,12 +184,12 @@ const dealMiddleCards = () => {
 
 
 const gameSetUp = () => {
-    alert('Welcome to the Game')
-    alert('We are creating your deck')
+    // alert('Welcome to the Game')
+    // alert('We are creating your deck')
     createDeck()
-    alert('We are sizing the deck for single or multiplayer')
-    playingDeck = deckSizer()
-    alert('We are shuffling your deck')
+    // alert('We are sizing the deck for single or multiplayer')
+    // playingDeck = deckSizer()
+    // alert('We are shuffling your deck')
     shuffledDeck()
 }
 gameSetUp()
@@ -191,25 +197,26 @@ gameSetUp()
 const playGame = () => {
     alert('We are dealing your deck')
     dealPlayerCards(playerOne)
-    alert('We are dealing the middle cards')
+    // alert('We are dealing the middle cards')
     dealMiddleCards()
-    alert('this is your hand')
+    // alert('this is your hand')
 	// alert(playerOne.pileOne[0].rank)
-    
 
-	let middleSelect = prompt('which card do you want to take from the middle?')
-	// let pile = parseInt(prompt('Which pile do you want to select')) // One
-	let cardSelect = prompt('which card do you want to take from the your hand?')
 
-	// console.log(playerOne.`${pile}`) //
-	// console.log(middleCards)
-	
-	// swap(middleSelect - 1, pile, handSelect - 1) // how do I get the users choice for a pile and use it when its an object and key
+	let selectedMiddleCard = prompt('which card do you want to take from the middle?')
+	let selectedCard = prompt('Which pile do you want to select') // One
+	// let selectedCard = prompt('which card do you want to take from the your hand?')
 
-	// console.log(playerOne.pile`${pile}`)
-    // console.log(middleCards)
+	console.log(middleCards)//[selectedMiddleCard])
+	console.log(playerOne.pileOne)//[selectedCard])
+
+	swap(selectedMiddleCard - 1, selectedCard - 1) // how do I get the users choice for a pile and use it when its an object and key
+
+	console.log(middleCards)//[selectedMiddleCard])
+	console.log(playerOne.pileOne)//[selectedCard])
 }
 playGame()
+
 // create a player selcection/comparison function
 
 
