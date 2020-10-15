@@ -21,11 +21,14 @@ class Card {
 	}
 }
 
+////////////////
+// Class Player, creates outline for players hand
+////////////////
 class Player {
 	constructor(name) {
 		this.name = name
 	}
-	pileOne = []
+	1 = []
 	pileTwo = []
 	pileThree = []
 	pileFour = []
@@ -33,7 +36,6 @@ class Player {
 	pileSix = []
 }
 const playerOne = new Player('Roger')
-// console.log(playerOne)
 
 ////////////////
 // Arrays for card info
@@ -74,7 +76,7 @@ const createDeck = () => {
 	}
 }
 // a deck of 52 cards are created
-createDeck()
+// createDeck()
 
 ////////////////
 // Function re sizes deck baised on playing mode
@@ -96,6 +98,8 @@ const deckSizer = () => {
 		return deck
 	}
 }
+
+// holeds the deck with the proper size
 let playingDeck = deckSizer()
 
 ////////////////
@@ -116,7 +120,7 @@ const shuffledDeck = () => {
 	}
 	return playingDeck
 }
-shuffledDeck()
+// shuffledDeck()
 
 ////////////////
 // Function Deals Players Hand
@@ -140,7 +144,7 @@ const dealPlayerCards = (player) => { // I think this only works for one player,
         }
     }
 }
-dealPlayerCards(playerOne)
+// dealPlayerCards(playerOne)
 
 ////////////////
 // Function Deals the Middle Cards
@@ -154,19 +158,69 @@ const dealMiddleCards = () => {
         middleCards.push(shuffledDeck()[i])
     }
 }
-dealMiddleCards()
+// dealMiddleCards()
 
-// create deck flip up function
+////////////////
+// Function Swaps User card choice with middle card
+////////////////
+// const swap = (middleIndex, pile, handIndex) => {
+// 	let firstCard = middleCards[middleIndex] // is now player ones card
+// 	let secondCard = playerOne.pile`${pile}`[handIndex] // is not middle card
+// 	let hold = firstCard
 
-// create deck flip down function
+// 	firstCard = secondCard
+// 	secondCard = hold
+// }
+// create a swap function
+// const swap = () => {
+// use splice and push into the new array
+// }
 
-// create count down function
 
+const gameSetUp = () => {
+    alert('Welcome to the Game')
+    alert('We are creating your deck')
+    createDeck()
+    alert('We are sizing the deck for single or multiplayer')
+    playingDeck = deckSizer()
+    alert('We are shuffling your deck')
+    shuffledDeck()
+}
+gameSetUp()
+
+const playGame = () => {
+    alert('We are dealing your deck')
+    dealPlayerCards(playerOne)
+    alert('We are dealing the middle cards')
+    dealMiddleCards()
+    alert('this is your hand')
+	// alert(playerOne.pileOne[0].rank)
+    
+
+	let middleSelect = prompt('which card do you want to take from the middle?')
+	// let pile = parseInt(prompt('Which pile do you want to select')) // One
+	let cardSelect = prompt('which card do you want to take from the your hand?')
+
+	// console.log(playerOne.`${pile}`) //
+	// console.log(middleCards)
+	
+	// swap(middleSelect - 1, pile, handSelect - 1) // how do I get the users choice for a pile and use it when its an object and key
+
+	// console.log(playerOne.pile`${pile}`)
+    // console.log(middleCards)
+}
+playGame()
 // create a player selcection/comparison function
-// potentially not needed
+
 
 // create winn logic
 // if player filps all decks up display stress
 // check finctuion checking all the deck
 // display all matched or unmatched
 // diplay win or loss
+
+// create deck flip up function (not absolutely neccesary)
+
+// create deck flip down function (not absolutely neccesary)
+
+// create count down function (not absolutely neccesary)
