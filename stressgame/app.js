@@ -28,12 +28,7 @@ class Player {
 	constructor(name) {
 		this.name = name
 	}
-	pileOne = []
-	pileTwo = []
-	pileThree = []
-	pileFour = []
-	pileFive = []
-	pileSix = []
+	hand = [[], [], [], [], [], []] // key hand holds an array 0 - 5 and each array holds 4 objects
 }
 const playerOne = new Player('Roger')
 
@@ -130,17 +125,17 @@ const dealPlayerCards = (player) => { // I think this only works for one player,
 	// if single player with 28 cards, the player gets 6 piles and 4 cards go into the middle
     for (let i = 0; i < shuffledDeck().length; i++) {
         if (i < 4) {
-            player.pileOne.push(shuffledDeck()[i])
-        } else if (i < 8){
-            player.pileTwo.push(shuffledDeck()[i])
+			player.hand[0].push(shuffledDeck()[i])
+		} else if (i < 8){
+            player.hand[1].push(shuffledDeck()[i])
         } else if (i < 12){
-            player.pileThree.push(shuffledDeck()[i])
+            player.hand[2].push(shuffledDeck()[i])
         } else if (i < 16){
-            player.pileFour.push(shuffledDeck()[i])
+            player.hand[3].push(shuffledDeck()[i])
         } else if (i < 20){
-            player.pileFive.push(shuffledDeck()[i])
+            player.hand[4].push(shuffledDeck()[i])
         } else if (i < 24){
-            player.pileSix.push(shuffledDeck()[i])
+            player.hand[5].push(shuffledDeck()[i])
         }
     }
 }
@@ -163,12 +158,12 @@ const dealMiddleCards = () => {
 ////////////////
 // Function Swaps User card choice with middle card
 ////////////////
-const swap = (middleIndex, cardIndex) => {
-	let playerCardSwap = playerOne.pileOne[cardIndex]
+const swap = (middleIndex, cardIndex, pile) => {
+	let playerCardSwap = playerOne.hand[pile][cardIndex]
 	let middleCardSwap = middleCards[middleIndex]
 
 	// With Splice
-	// playerOne.pileOne.splice(cardIndex, 1, middleCardSwap)
+	// playerOne.hand[pile].splice(cardIndex, 1, middleCardSwap)
 	// middleCards.splice(middleIndex, 1, playerCardSwap)
 
 	// I need to decide which one I want to use
@@ -177,8 +172,8 @@ const swap = (middleIndex, cardIndex) => {
 	middleCards.splice(middleIndex, 1)
 	middleCards.push(playerCardSwap)
 
-	playerOne.pileOne.splice(cardIndex, 1)
-	playerOne.pileOne.push(middleCardSwap)
+	playerOne.hand[pile].splice(cardIndex, 1)
+	playerOne.hand[pile].push(middleCardSwap)
 }
 // use splice and push into the new array
 
@@ -198,15 +193,17 @@ const playGame = () => {
     alert('We are dealing your deck')
     dealPlayerCards(playerOne)
     // alert('We are dealing the middle cards')
-    dealMiddleCards()
+	dealMiddleCards()
+	
     // alert('this is your hand')
 	// alert(playerOne.pileOne[0].rank)
 
 	let selectedMiddleCard = prompt('which card do you want to take from the middle?')
-	let selectedCard = prompt('Which pile do you want to select') // One
-	// let selectedCard = prompt('which card do you want to take from the your hand?')
+	let selectedPile = prompt('Which pile do you want to select') // One
+	let selectedCard = prompt('which card do you want to take from the your hand?')
 
-	swap(selectedMiddleCard - 1, selectedCard - 1) // how do I get the users choice for a pile and use it when its an object and key
+	swap(selectedMiddleCard - 1, selectedCard - 1, selectedPile) // how do I get the users choice for a pile and use it when its an object and key
+
 }
 playGame()
 
