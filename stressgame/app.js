@@ -156,7 +156,7 @@ const dealMiddleCards = () => {
     // this pulls the middle cards from the last 4 postions in the shuffled deck
     for (let i = shuffledDeck().length - 1; i >= shuffledDeck().length - 4 ; i--) {
         middleCards.push(shuffledDeck()[i])
-    }
+	}
 }
 // dealMiddleCards()
 
@@ -164,23 +164,23 @@ const dealMiddleCards = () => {
 // Function Swaps User card choice with middle card
 ////////////////
 const swap = (middleIndex, cardIndex) => {
-	let firstCard = middleCards[middleIndex] // is now player ones card
-	let secondCard = playerOne.pileOne[cardIndex] // is now middle card
-	let hold = firstCard
+	let playerCardSwap = playerOne.pileOne[cardIndex]
+	let middleCardSwap = middleCards[middleIndex]
 
-	// console.log(secondCard)
-	// console.log(firstCard)
+	// With Splice
+	// playerOne.pileOne.splice(cardIndex, 1, middleCardSwap)
+	// middleCards.splice(middleIndex, 1, playerCardSwap)
 
-	firstCard = secondCard
-	secondCard = hold
+	// I need to decide which one I want to use
 
-	// console.log(secondCard)
-	// console.log(firstCard)
+	// With splice and Push
+	middleCards.splice(middleIndex, 1)
+	middleCards.push(playerCardSwap)
+
+	playerOne.pileOne.splice(cardIndex, 1)
+	playerOne.pileOne.push(middleCardSwap)
 }
-// create a swap function
-// const swap = () => {
 // use splice and push into the new array
-// }
 
 
 const gameSetUp = () => {
@@ -202,18 +202,11 @@ const playGame = () => {
     // alert('this is your hand')
 	// alert(playerOne.pileOne[0].rank)
 
-
 	let selectedMiddleCard = prompt('which card do you want to take from the middle?')
 	let selectedCard = prompt('Which pile do you want to select') // One
 	// let selectedCard = prompt('which card do you want to take from the your hand?')
 
-	console.log(middleCards)//[selectedMiddleCard])
-	console.log(playerOne.pileOne)//[selectedCard])
-
 	swap(selectedMiddleCard - 1, selectedCard - 1) // how do I get the users choice for a pile and use it when its an object and key
-
-	console.log(middleCards)//[selectedMiddleCard])
-	console.log(playerOne.pileOne)//[selectedCard])
 }
 playGame()
 
