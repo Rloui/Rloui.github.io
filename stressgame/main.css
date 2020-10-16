@@ -1,3 +1,55 @@
 * {
     border: 1px solid goldenrod;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
+body {
+    background-color: green;
+    height: 100vh;
+    width: 100vw;
+}
+
+header {
+    text-align: center;
+    height: 5vh;
+}
+
+.flex-nav {
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.flex-midPile {
+    height: 25vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#midDeck {
+    height: 180px;
+    width: 140px;
+    margin: 10px;
+}
+
+.flex-pile {
+    height: 50vh;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-evenly;
+}
+.pile {
+    width: 140px;
+    height: 180px;
+}
+
+
+

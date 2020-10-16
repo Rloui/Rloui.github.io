@@ -12,7 +12,7 @@ Monday:
 - brainstorm gameplay
 
 Tuesday:    
-- complete gameplay for the game in JS
+- complete gameplay for the game in JS*
 - complete DOM manipulation
 
 Wednesday:  
@@ -23,6 +23,7 @@ Wednesday:
 Thursday:   
 - add transitions and what not
 - complete README and presentation
+- get feed back
 
 Friday: 
 - reveiw game

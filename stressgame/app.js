@@ -95,7 +95,7 @@ const deckSizer = () => {
 }
 
 // holeds the deck with the proper size
-let playingDeck = deckSizer()
+// let playingDeck = deckSizer() !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 ////////////////
 // Function Shuffles Deck
@@ -187,7 +187,7 @@ const gameSetUp = () => {
     // alert('We are shuffling your deck')
     shuffledDeck()
 }
-gameSetUp()
+// gameSetUp()
 
 const playGame = () => {
     alert('We are dealing your deck')
@@ -203,11 +203,10 @@ const playGame = () => {
 	let selectedCard = prompt('which card do you want to take from the your hand?')
 
 	swap(selectedMiddleCard - 1, selectedCard - 1, selectedPile) // how do I get the users choice for a pile and use it when its an object and key
-
 }
-playGame()
+// playGame()
 
-// create a player selcection/comparison function
+
 
 
 // create winn logic
@@ -215,6 +214,8 @@ playGame()
 // check finctuion checking all the deck
 // display all matched or unmatched
 // diplay win or loss
+
+// create a player selcection/comparison function (mayn not be needed)
 
 // create deck flip up function (not absolutely neccesary)
 
