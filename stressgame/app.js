@@ -11,10 +11,11 @@
 ////////////////
 class Card {
 	// holds outline for a card
-	constructor(suit, rank, color) {
+	constructor(suit, rank, color, suitClass) {
 		this.suit = suit
 		this.rank = rank
 		this.color = color
+		this.suitClass = suitClass
 	}
 
 	// imgs: [{
@@ -63,18 +64,19 @@ const createDeck = () => {
 			// if else statement specifies the color of the card
 			if (suits[j] === 'clubs' || suits[j] === 'spades') {
 				let suitColor = cardColor[0]
-				const deckCreation = new Card(suits[j], ranks[k], suitColor)
+				const deckCreation = new Card(suits[j], ranks[k], suitColor, '.' + suits[j])
 				deck.push(deckCreation)
 			} else {
 				suitColor = cardColor[1]
-				const deckCreation = new Card(suits[j], ranks[k], suitColor)
+				const deckCreation = new Card(suits[j], ranks[k], suitColor, '.' + suits[j])
 				deck.push(deckCreation)
 			}
 		}
 	}
 }
 // a deck of 52 cards are created
-// createDeck()
+createDeck()
+console.log(deck)
 
 ////////////////
 // Function re sizes deck baised on playing mode
