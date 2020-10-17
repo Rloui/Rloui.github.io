@@ -1,6 +1,3 @@
-// $(() => {
-
-// })
 // Pseudo Code
 
 // create the 52 cards in the deck to be played with
@@ -19,6 +16,12 @@ class Card {
 		this.rank = rank
 		this.color = color
 	}
+
+	// imgs: [{
+	// 	suit: 'clubs',
+	// 	rank: '9',
+	// 	imageURL: 'someFileName.jpg'
+	//   }]
 }
 
 ////////////////
@@ -206,6 +209,9 @@ const playGame = () => {
 }
 // playGame()
 
+// $(() => {
+
+// })
 
 
 

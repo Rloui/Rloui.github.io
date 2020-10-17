@@ -12,13 +12,12 @@ Monday:
 - brainstorm gameplay
 
 Tuesday:    
-- complete gameplay for the game in JS*
-- complete DOM manipulation
+- complete gameplay for the game in JS
+- complete DOM manipulation*
 
 Wednesday:  
 - troubleshoot JS and DOM minipulation
 - style html with css
-            
 
 Thursday:   
 - add transitions and what not
@@ -27,6 +26,12 @@ Thursday:
 
 Friday: 
 - reveiw game
+
+Saturday:
+- 
+
+Sunday:
+- 
 
 Chosing Data Structure
 - for the cards an object should be used be cause it will have three properties, keys: color, suit, and values

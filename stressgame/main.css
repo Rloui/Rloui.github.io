@@ -30,13 +30,21 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    
 }
 
 #midDeck {
     height: 180px;
     width: 140px;
     margin: 10px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.flex-suit {
+    display: flex;
+    align-items: center;
 }
 
 .flex-pile {
@@ -51,9 +59,33 @@ header {
     height: 180px;
 }
 
-img {
+.hearts {
+    background: url('/suitSprite.png') no-repeat -112px -4px;
+	width: 78px;
+	height: 89px;
+}
+
+.spades {
+    background: url('/suitSprite.png') no-repeat -5px -3px;
+	width: 69px;
+	height: 91px;
+}
+
+.diamonds {
+    background: url('/suitSprite.png') no-repeat -7px -106px;
+	width: 65px;
+	height: 89px;
+}
+
+.clubs {
+    background: url('/suitSprite.png') no-repeat -107px -107px;
+	width: 88px;
+	height: 87px;
+}
+
+/* img {
     height: 180px;
     width: 140px;
-}
+} */
 
 
