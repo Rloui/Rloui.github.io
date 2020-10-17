@@ -126,26 +126,26 @@ shuffledDeck()
 /////////////////////////////////
 // Function Deals Players Hand //
 /////////////////////////////////
-// const dealPlayerCards = (player) => { // I think this only works for one player, player 2 would have the same hand(not good)
-// 	// if multiplayer with 52 cards each player gets 6 piles of 4 and 4 cards do in the middle in th middle
-// 	// if single player with 28 cards, the player gets 6 piles and 4 cards go into the middle
-//     for (let i = 0; i < shuffledDeck().length; i++) {
-//         if (i < 4) {
-// 			player.hand[0].push(shuffledDeck()[i])
-// 		} else if (i < 8){
-//             player.hand[1].push(shuffledDeck()[i])
-//         } else if (i < 12){
-//             player.hand[2].push(shuffledDeck()[i])
-//         } else if (i < 16){
-//             player.hand[3].push(shuffledDeck()[i])
-//         } else if (i < 20){
-//             player.hand[4].push(shuffledDeck()[i])
-//         } else if (i < 24){
-//             player.hand[5].push(shuffledDeck()[i])
-//         }
-//     }
-// }
-// // dealPlayerCards(playerOne)
+const dealPlayerCards = (player) => { // I think this only works for one player, player 2 would have the same hand(not good)
+	// if multiplayer with 52 cards each player gets 6 piles of 4 and 4 cards do in the middle in th middle
+	// if single player with 28 cards, the player gets 6 piles and 4 cards go into the middle
+    for (let i = 0; i < shuffledDeck().length; i++) {
+        if (i < 4) {
+			player.hand[0].push(shuffledDeck()[i])
+		} else if (i < 8){
+            player.hand[1].push(shuffledDeck()[i])
+        } else if (i < 12){
+            player.hand[2].push(shuffledDeck()[i])
+        } else if (i < 16){
+            player.hand[3].push(shuffledDeck()[i])
+        } else if (i < 20){
+            player.hand[4].push(shuffledDeck()[i])
+        } else if (i < 24){
+            player.hand[5].push(shuffledDeck()[i])
+        }
+    }
+}
+dealPlayerCards(playerOne)
 
 // /////////////////////////////////////
 // // Function Deals the Middle Cards //
@@ -169,9 +169,6 @@ dealMiddleCards()
 /// Function Renders Cards //
 ///////////////////////////////////////////////////////
 const renderCards = () => {
-	// const $value = $('.value')
-	// const $suit = $('.suit')
-	// const $mCardID = $('mCard' + i)
 
 	for (let i = 0; i < middleCards.length; i++) {
 		const $value = $('.value' + i)
@@ -181,11 +178,39 @@ const renderCards = () => {
 		$suit.addClass('suit' + middleCards[i].suit)
 	}
 
-	// $value.text(middleCards[0].rank)
-	// $suit.addClass('suit' + middleCards[0].suit)
+	for (let k = 0; k < 1; k++) {
+		for (let i = 0; i < 1; i++) {
+			for (let j = 0; j < 4; j++) {
+				const $pileNumber = $('#pileNumber' + k)
+				const $pileValue = $('.pileValue' + j)
+				const $suit = $('.pileSuit' + j)
 
+				$pileValue.text(playerOne.hand[i][j].rank)
+				$suit.addClass('suit' + playerOne.hand[i][j].suit)
+			}
+		}
+	}
 }
 renderCards()
+console.log(middleCards)
+console.log(playerOne)
+console.log(playerOne.hand[0][0].rank)
+console.log(playerOne.hand[0][0].suit)
+console.log(playerOne.hand[0][1].rank)
+console.log(playerOne.hand[0][1].suit)
+console.log(playerOne.hand[0][2].rank)
+console.log(playerOne.hand[0][2].suit)
+console.log(playerOne.hand[0][3].rank)
+console.log(playerOne.hand[0][3].suit)
+console.log(playerOne.hand[1][0].rank)
+console.log(playerOne.hand[1][0].suit)
+console.log(playerOne.hand[1][1].rank)
+console.log(playerOne.hand[1][1].suit)
+console.log(playerOne.hand[1][2].rank)
+console.log(playerOne.hand[1][2].suit)
+console.log(playerOne.hand[1][3].rank)
+console.log(playerOne.hand[1][3].suit)
+
 
 // //////////////////////////////////////////////////////
 // // Function Swaps User card choice with middle card //
