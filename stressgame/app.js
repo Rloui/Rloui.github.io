@@ -158,23 +158,31 @@ const dealMiddleCards = () => {
     // this pulls the middle cards from the last 4 postions in the shuffled deck
     for (let i = shuffledDeck().length - 1; i >= shuffledDeck().length - 4 ; i--) {
 		middleCards.push(shuffledDeck()[i])
-		$('.flex-suit').append($div.addClass(middleCards[0].suitClass))
 	}
 }
 dealMiddleCards()
-console.log(middleCards[0])
-console.log(middleCards[0].rank)
-console.log(middleCards[0].suit)
+// console.log(middleCards[0])
+// console.log(middleCards[0].rank)
+// console.log(middleCards[0].suit)
 
 ///////////////////////////////////////////////////////
 /// Function Renders Cards //
 ///////////////////////////////////////////////////////
 const renderCards = () => {
-	const $value = $('.value')
-	const $suit = $('.suit')
+	// const $value = $('.value')
+	// const $suit = $('.suit')
+	// const $mCardID = $('mCard' + i)
 
-	$value.text(middleCards[0].rank)
-	$suit.addClass('suit' + middleCards[0].suit)
+	for (let i = 0; i < middleCards.length; i++) {
+		const $value = $('.value' + i)
+		const $suit = $('.suit' + i)
+
+		$value.text(middleCards[i].rank)
+		$suit.addClass('suit' + middleCards[i].suit)
+	}
+
+	// $value.text(middleCards[0].rank)
+	// $suit.addClass('suit' + middleCards[0].suit)
 
 }
 renderCards()
