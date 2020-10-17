@@ -1,4 +1,5 @@
-// Pseudo Code
+$(() => {
+	// Pseudo Code
 
 // create the 52 cards in the deck to be played with
 
@@ -6,9 +7,9 @@
 
 // constructor valuses color, suit, and values
 
-////////////////
-// Class Deck, creates outline for deck of cards
-////////////////
+///////////////////////////////////////////////////
+// Class Deck, creates outline for deck of cards //
+///////////////////////////////////////////////////
 class Card {
 	// holds outline for a card
 	constructor(suit, rank, color, suitClass) {
@@ -25,9 +26,9 @@ class Card {
 	//   }]
 }
 
-////////////////
-// Class Player, creates outline for players hand
-////////////////
+////////////////////////////////////////////////////
+// Class Player, creates outline for players hand //
+////////////////////////////////////////////////////
 class Player {
 	constructor(name) {
 		this.name = name
@@ -36,11 +37,11 @@ class Player {
 }
 const playerOne = new Player('Roger')
 
-////////////////
-// Arrays for card info
-////////////////
+//////////////////////////
+// Arrays for card info //
+//////////////////////////
 // suits: hearts, diamonds, clubs, spades
-const suits = [ 'clubs', 'diamonds', 'hearts', 'spades' ]
+const suits = [ 'Clubs', 'Diamonds', 'Hearts', 'Spades' ]
 
 // color: red and black
 const cardColor = [ 'black', 'red' ]
@@ -51,9 +52,9 @@ const ranks = [ 'A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'
 // this array to holds the deck
 const deck = []
 
-////////////////
-// Function creates deck
-////////////////
+///////////////////////////////////////
+// Function creates deck of 52 cards //
+///////////////////////////////////////
 const createDeck = () => {
 	// instantiates each card in deck
 	// use a loop to fill the deck array with card objects
@@ -74,13 +75,11 @@ const createDeck = () => {
 		}
 	}
 }
-// a deck of 52 cards are created
 createDeck()
-console.log(deck)
 
-////////////////
-// Function re sizes deck baised on playing mode
-////////////////
+///////////////////////////////////////////////////
+// Function re sizes deck baised on playing mode //
+///////////////////////////////////////////////////
 const deckSizer = () => {
 	// returns resized deck array ofr player mode
 	let playersMode = prompt('what mode do you want to play in Mult-player or Single player? Type Single or Mult below')
@@ -96,15 +95,16 @@ const deckSizer = () => {
 			}
 		}
 		return deck
+
 	}
 }
 
-// holeds the deck with the proper size
-// let playingDeck = deckSizer() !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// holeds the deck with the proper playing size
+let playingDeck = deckSizer()
 
-////////////////
-// Function Shuffles Deck
-////////////////
+////////////////////////////
+// Function Shuffles Deck //
+////////////////////////////
 const shuffledDeck = () => {
 	// returns shuffled playingcards array
 	// one loop shuffles once
@@ -120,100 +120,119 @@ const shuffledDeck = () => {
 	}
 	return playingDeck
 }
-// shuffledDeck()
+shuffledDeck()
+// console.log(playingDeck)
 
-////////////////
-// Function Deals Players Hand
-////////////////
-const dealPlayerCards = (player) => { // I think this only works for one player, player 2 would have the same hand(not good)
-	// if multiplayer with 52 cards each player gets 6 piles of 4 and 4 cards do in the middle in th middle
-	// if single player with 28 cards, the player gets 6 piles and 4 cards go into the middle
-    for (let i = 0; i < shuffledDeck().length; i++) {
-        if (i < 4) {
-			player.hand[0].push(shuffledDeck()[i])
-		} else if (i < 8){
-            player.hand[1].push(shuffledDeck()[i])
-        } else if (i < 12){
-            player.hand[2].push(shuffledDeck()[i])
-        } else if (i < 16){
-            player.hand[3].push(shuffledDeck()[i])
-        } else if (i < 20){
-            player.hand[4].push(shuffledDeck()[i])
-        } else if (i < 24){
-            player.hand[5].push(shuffledDeck()[i])
-        }
-    }
-}
-// dealPlayerCards(playerOne)
+/////////////////////////////////
+// Function Deals Players Hand //
+/////////////////////////////////
+// const dealPlayerCards = (player) => { // I think this only works for one player, player 2 would have the same hand(not good)
+// 	// if multiplayer with 52 cards each player gets 6 piles of 4 and 4 cards do in the middle in th middle
+// 	// if single player with 28 cards, the player gets 6 piles and 4 cards go into the middle
+//     for (let i = 0; i < shuffledDeck().length; i++) {
+//         if (i < 4) {
+// 			player.hand[0].push(shuffledDeck()[i])
+// 		} else if (i < 8){
+//             player.hand[1].push(shuffledDeck()[i])
+//         } else if (i < 12){
+//             player.hand[2].push(shuffledDeck()[i])
+//         } else if (i < 16){
+//             player.hand[3].push(shuffledDeck()[i])
+//         } else if (i < 20){
+//             player.hand[4].push(shuffledDeck()[i])
+//         } else if (i < 24){
+//             player.hand[5].push(shuffledDeck()[i])
+//         }
+//     }
+// }
+// // dealPlayerCards(playerOne)
 
-////////////////
-// Function Deals the Middle Cards
-////////////////
+// /////////////////////////////////////
+// // Function Deals the Middle Cards //
+// /////////////////////////////////////
 // this array holds the cards that are flipped in the middle
-const middleCards = []
+const middleCards = [] //we have objects with the number and the suit
 
 const dealMiddleCards = () => {
+	const $div = $('<div>')
     // this pulls the middle cards from the last 4 postions in the shuffled deck
     for (let i = shuffledDeck().length - 1; i >= shuffledDeck().length - 4 ; i--) {
-        middleCards.push(shuffledDeck()[i])
+		middleCards.push(shuffledDeck()[i])
+		$('.flex-suit').append($div.addClass(middleCards[0].suitClass))
 	}
 }
-// dealMiddleCards()
+dealMiddleCards()
+console.log(middleCards[0])
+console.log(middleCards[0].rank)
+console.log(middleCards[0].suit)
 
-////////////////
-// Function Swaps User card choice with middle card
-////////////////
-const swap = (middleIndex, cardIndex, pile) => {
-	let playerCardSwap = playerOne.hand[pile][cardIndex]
-	let middleCardSwap = middleCards[middleIndex]
+///////////////////////////////////////////////////////
+/// Function Renders Cards //
+///////////////////////////////////////////////////////
+const renderCards = () => {
+	const $value = $('.value')
+	const $suit = $('.suit')
 
-	// With Splice
-	// playerOne.hand[pile].splice(cardIndex, 1, middleCardSwap)
-	// middleCards.splice(middleIndex, 1, playerCardSwap)
+	$value.text(middleCards[0].rank)
+	$suit.addClass('suit' + middleCards[0].suit)
 
-	// I need to decide which one I want to use
-
-	// With splice and Push
-	middleCards.splice(middleIndex, 1)
-	middleCards.push(playerCardSwap)
-
-	playerOne.hand[pile].splice(cardIndex, 1)
-	playerOne.hand[pile].push(middleCardSwap)
 }
-// use splice and push into the new array
+renderCards()
+
+// //////////////////////////////////////////////////////
+// // Function Swaps User card choice with middle card //
+// //////////////////////////////////////////////////////
+// const swap = (middleIndex, cardIndex, pile) => {
+// 	let playerCardSwap = playerOne.hand[pile][cardIndex]
+// 	let middleCardSwap = middleCards[middleIndex]
+
+// 	// With Splice
+// 	// playerOne.hand[pile].splice(cardIndex, 1, middleCardSwap)
+// 	// middleCards.splice(middleIndex, 1, playerCardSwap)
+
+// 	// I need to decide which one I want to use
+
+// 	// With splice and Push
+// 	middleCards.splice(middleIndex, 1)
+// 	middleCards.push(playerCardSwap)
+
+// 	playerOne.hand[pile].splice(cardIndex, 1)
+// 	playerOne.hand[pile].push(middleCardSwap)
+// }
+// // use splice and push into the new array
 
 
-const gameSetUp = () => {
-    // alert('Welcome to the Game')
-    // alert('We are creating your deck')
-    createDeck()
-    // alert('We are sizing the deck for single or multiplayer')
-    // playingDeck = deckSizer()
-    // alert('We are shuffling your deck')
-    shuffledDeck()
-}
+// const gameSetUp = () => {
+//     // alert('Welcome to the Game')
+//     // alert('We are creating your deck')
+//     createDeck()
+//     // alert('We are sizing the deck for single or multiplayer')
+//     // playingDeck = deckSizer()
+//     // alert('We are shuffling your deck')
+//     shuffledDeck()
+// }
 // gameSetUp()
 
-const playGame = () => {
-    alert('We are dealing your deck')
-    dealPlayerCards(playerOne)
-    // alert('We are dealing the middle cards')
-	dealMiddleCards()
+// const playGame = () => {
+//     alert('We are dealing your deck')
+//     dealPlayerCards(playerOne)
+//     // alert('We are dealing the middle cards')
+// 	dealMiddleCards()
 	
-    // alert('this is your hand')
-	// alert(playerOne.pileOne[0].rank)
+//     // alert('this is your hand')
+// 	// alert(playerOne.pileOne[0].rank)
 
-	let selectedMiddleCard = prompt('which card do you want to take from the middle?')
-	let selectedPile = prompt('Which pile do you want to select') // One
-	let selectedCard = prompt('which card do you want to take from the your hand?')
+// 	let selectedMiddleCard = prompt('which card do you want to take from the middle?')
+// 	let selectedPile = prompt('Which pile do you want to select') // One
+// 	let selectedCard = prompt('which card do you want to take from the your hand?')
 
-	swap(selectedMiddleCard - 1, selectedCard - 1, selectedPile) // how do I get the users choice for a pile and use it when its an object and key
-}
+// 	swap(selectedMiddleCard - 1, selectedCard - 1, selectedPile) // how do I get the users choice for a pile and use it when its an object and key
+// }
 // playGame()
 
-// $(() => {
 
-// })
+
+})
 
 
 
