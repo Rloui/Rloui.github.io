@@ -67,3 +67,7 @@ Winning
 13. player taps all piles
 14. player yells stress
 15. player won the game it they beat the other person or the time
+
+Resources
+http://www.spritecow.com/
+https://www.thatsoftwaredude.com/content/6196/coding-a-card-deck-in-javascript

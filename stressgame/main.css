@@ -24,7 +24,42 @@ header {
     align-items: center;
 }
 
-.flex-midPile {
+#drawPiles {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#handPiles {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.pile {
+    height: 180px;
+    width: 280px;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: row;
+}
+
+.card {
+    height: 180px;
+    width: 140px;
+    background-color: white;
+    margin: 0 10px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    /* align-items: ; */
+}
+
+#cardInPile {
+    /* left: 220; */
+}
+
+/* .flex-middlePile {
     height: 25vh;
     display: flex;
     flex-direction: row;
@@ -58,30 +93,31 @@ header {
     width: 140px;
     height: 180px;
 }
-
-.hearts {
+*/
+.suitHearts {
     background: url('/suitSprite.png') no-repeat -112px -4px;
 	width: 78px;
 	height: 89px;
 }
 
-.spades {
+.suitSpades {
     background: url('/suitSprite.png') no-repeat -5px -3px;
 	width: 69px;
 	height: 91px;
 }
 
-.diamonds {
+.suitDiamonds {
     background: url('/suitSprite.png') no-repeat -7px -106px;
 	width: 65px;
 	height: 89px;
 }
 
-.clubs {
+
+.suitClubs {
     background: url('/suitSprite.png') no-repeat -107px -107px;
 	width: 88px;
 	height: 87px;
-}
+} 
 
 /* img {
     height: 180px;
