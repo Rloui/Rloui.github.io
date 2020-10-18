@@ -115,7 +115,7 @@ $(() => {
 		return playingDeck
 	}
 	shuffledDeck()
-	console.log(playingDeck)
+	// console.log(playingDeck)
 	
 	
 
@@ -154,7 +154,6 @@ $(() => {
 	const dealMiddleCards = () => {
 		// this pulls the middle cards from the last 4 postions in the shuffled deck
 		for (let i = playingDeck.length - 1; i >= playingDeck.length - 4; i--) {
-			console.log(i)
 			middleCards.push(playingDeck[i])
 		}
 	}
@@ -164,7 +163,8 @@ $(() => {
 	///////////////////////////////////////////////////////
 	/// Function Renders Cards //
 	///////////////////////////////////////////////////////
-	const renderCards = (count) => {
+	const renderCards = () => {
+		let count = 0
 		for (let i = 0; i < middleCards.length; i++) {
 			const $value = $('.value' + i)
 			const $suit = $('.suit' + i)
@@ -180,12 +180,12 @@ $(() => {
 			}
 		}
 	}
-	let counter = 0
-	renderCards(counter)
+	renderCards()
 
-	// //////////////////////////////////////////////////////
-	// // Function Swaps User card choice with middle card //
-	// //////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////
+	// Function Swaps User card choice with middle card //
+	//////////////////////////////////////////////////////
+
 	const swap = (middleIndex, cardIndex, pile) => {
 		let playerCardSwap = playerOne.hand[pile][cardIndex]
 		let middleCardSwap = middleCards[middleIndex]
@@ -202,7 +202,54 @@ $(() => {
 
 		playerOne.hand[pile].splice(cardIndex, 1)
 		playerOne.hand[pile].push(middleCardSwap)
+
+		renderCards()
 	}
+
+	const startSwap = () => {
+		let selectedMiddleCard = prompt('which card do you want to take from the middle?')
+		let selectedPile = prompt('Which pile do you want to select')
+		let selectedCard = prompt('which card do you want to take from the your hand?')
+
+		// console.log(selectedMiddleCard)
+		// console.log(selectedCard)
+		// console.log(selectedPile)
+
+		swap(selectedMiddleCard - 1, selectedCard - 1, selectedPile - 1)
+
+		console.log(middleCards)
+		console.log(playerOne.hand[0])
+	}
+
+	$('.card').on('click', startSwap)
+
+
+	// $('.card').on('click', (e) => {
+
+	// 	console.log('card was clicked')
+	// 	console.log($(e.currentTarget))
+	// 	console.log($(e.currentTarget).children())
+	// 	console.log($(e.currentTarget).children().eq(0))
+
+	// 	// console.log($(event.currentTarget).children().eq(0).text())
+
+	// 	console.log($(e.currentTarget).children().eq(1))
+	// 	e.stopPropagation() // stops event bubbling
+
+	// })
+	// elem.on(STRING, CALLBACK);
+
+	// i need to change the card arrays of middleCards and playerOne and when that is done I need to rerender the cards on to the page
+	// the key values that I need to change are the rank and the suit
+	// $(event.currentTarget).toggleClass('card-back')
+
+
+
+
+
+
+
+
 
 	// const gameSetUp = () => {
 	//     // alert('Welcome to the Game')
