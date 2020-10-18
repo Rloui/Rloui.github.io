@@ -213,21 +213,34 @@ $(() => {
 		// console.log(selectedCard)
 		// console.log(selectedPile)
 
-		swap(selectedMiddleCard - 1, selectedCard - 1, selectedPile - 1)
+		swap(selectedMiddleCard, selectedCard, selectedPile)
 
 		console.log(middleCards)
 		console.log(playerOne.hand[0])
 	}
 
 	// $('.card').on('click', startSwap)
-
-
-	// I need to use a click function to get the card positions to switch
 	
 	
 	$('.card').on('click', (e) => {
+
+		let selectedMiddleCard = 0
+		let selectedPile = 0
+		let selectedCard = 0
+
+		if ($(e.currentTarget).parent().attr('id') === 'drawPiles') {
+			selectedMiddleCard = $(e.currentTarget).attr('id')
+		} 
+		else if ($(e.currentTarget).parent().attr('class') === 'pile') {
+			selectedCard = $(e.currentTarget).attr('id')
+			selectedPile = $(e.currentTarget).parent().attr('id')
+		}
 		console.log('card was clicked')
-		console.log($(e.currentTarget).attr('id'))
+		
+		console.log('middle: ' + selectedMiddleCard)
+		console.log('card: ' + selectedCard)
+		console.log('pile: ' + selectedPile)
+
 		e.stopPropagation() // stops event bubbling
 
 	})
