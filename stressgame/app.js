@@ -194,8 +194,6 @@ $(() => {
 		playerOne.hand[pile].splice(cardIndex, 1, middleCardSwap)
 		middleCards.splice(middleIndex, 1, playerCardSwap)
 
-		// I need to decide which one I want to use
-
 		//// With splice and Push ////
 		// middleCards.splice(middleIndex, 1)
 		// middleCards.push(playerCardSwap)
@@ -221,23 +219,20 @@ $(() => {
 		console.log(playerOne.hand[0])
 	}
 
-	$('.card').on('click', startSwap)
+	// $('.card').on('click', startSwap)
 
 
+	// I need to use a click function to get the card positions to switch
 	
-	// $('.card').on('click', (e) => {
+	
+	$('.card').on('click', (e) => {
+		console.log('card was clicked')
+		console.log($(e.currentTarget).attr('id'))
+		e.stopPropagation() // stops event bubbling
 
-	// 	console.log('card was clicked')
-	// 	console.log($(e.currentTarget))
-	// 	console.log($(e.currentTarget).children())
-	// 	console.log($(e.currentTarget).children().eq(0))
-
-	// 	// console.log($(event.currentTarget).children().eq(0).text())
-
-	// 	console.log($(e.currentTarget).children().eq(1))
-	// 	e.stopPropagation() // stops event bubbling
-
-	// })
+	})
+	// console.log($('.card').attr('id'))
+	// console.log(('.card'))
 	// elem.on(STRING, CALLBACK);
 
 	// i need to change the card arrays of middleCards and playerOne and when that is done I need to rerender the cards on to the page
