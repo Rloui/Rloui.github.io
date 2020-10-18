@@ -190,18 +190,18 @@ $(() => {
 		let playerCardSwap = playerOne.hand[pile][cardIndex]
 		let middleCardSwap = middleCards[middleIndex]
 
-		// With Splice
-		// playerOne.hand[pile].splice(cardIndex, 1, middleCardSwap)
-		// middleCards.splice(middleIndex, 1, playerCardSwap)
+		//// With Splice ////
+		playerOne.hand[pile].splice(cardIndex, 1, middleCardSwap)
+		middleCards.splice(middleIndex, 1, playerCardSwap)
 
 		// I need to decide which one I want to use
 
-		// With splice and Push
-		middleCards.splice(middleIndex, 1)
-		middleCards.push(playerCardSwap)
+		//// With splice and Push ////
+		// middleCards.splice(middleIndex, 1)
+		// middleCards.push(playerCardSwap)
 
-		playerOne.hand[pile].splice(cardIndex, 1)
-		playerOne.hand[pile].push(middleCardSwap)
+		// playerOne.hand[pile].splice(cardIndex, 1)
+		// playerOne.hand[pile].push(middleCardSwap)
 
 		renderCards()
 	}
@@ -224,6 +224,7 @@ $(() => {
 	$('.card').on('click', startSwap)
 
 
+	
 	// $('.card').on('click', (e) => {
 
 	// 	console.log('card was clicked')
