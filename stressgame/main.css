@@ -1,5 +1,5 @@
 * {
-    border: 1px solid goldenrod;
+    /* border: 1px solid goldenrod; */
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -30,21 +30,7 @@ header {
     justify-content: center;
 }
 
-#handPiles {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
-.pile {
-    height: 180px;
-    width: 280px;
-    border: 1px solid white;
-    display: flex;
-    flex-direction: row;
-}
-
-.card {
+#drawPiles .card {
     height: 180px;
     width: 140px;
     background-color: white;
@@ -55,45 +41,38 @@ header {
     /* align-items: ; */
 }
 
-#cardInPile {
-    /* left: 220; */
-}
-
-/* .flex-middlePile {
-    height: 25vh;
+#handPiles {
+    height: 60vh;
+    /* border: 1px solid gold; */
+    margin-top: 30px;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    /* justify-content: space-evenly; */
+    flex-wrap: wrap;
 }
 
-#midDeck {
-    height: 180px;
-    width: 140px;
-    margin: 10px;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    font-size: 30px;
-}
-
-.flex-suit {
-    display: flex;
-    align-items: center;
-}
-
-.flex-pile {
-    height: 50vh;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: space-evenly;
-}
 .pile {
-    width: 140px;
     height: 180px;
+    width: 560px;
+    /* border: 2px solid blue; */
+    margin: 0 auto;
+    overflow: auto;
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
 }
-*/
+
+#handPiles .card {
+    height: 180px;
+    width: 140px;
+    border: 1px solid black;
+    background-color: white;
+    margin: 0 10px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+}
+
 .suitHearts {
     background: url('/suitSprite.png') no-repeat -112px -4px;
 	width: 78px;
@@ -112,16 +91,10 @@ header {
 	height: 89px;
 }
 
-
 .suitClubs {
     background: url('/suitSprite.png') no-repeat -107px -107px;
 	width: 88px;
 	height: 87px;
-} 
-
-/* img {
-    height: 180px;
-    width: 140px;
-} */
+}
 
 
