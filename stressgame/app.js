@@ -18,12 +18,6 @@ $(() => {
 			this.color = color
 			this.suitClass = suitClass
 		}
-
-		// imgs: [{
-		// 	suit: 'clubs',
-		// 	rank: '9',
-		// 	imageURL: 'someFileName.jpg'
-		//   }]
 	}
 
 	////////////////////////////////////////////////////
@@ -113,7 +107,6 @@ $(() => {
 			let firstCard = Math.floor(Math.random() * playingDeck.length)
 			let secondCard = Math.floor(Math.random() * playingDeck.length)
 			let hold = playingDeck[firstCard]
-
 			// swaps card from the first position to the second position
 			playingDeck[firstCard] = playingDeck[secondCard]
 			//swaps card from the secons position the the first position
@@ -122,7 +115,9 @@ $(() => {
 		return playingDeck
 	}
 	shuffledDeck()
-	// console.log(playingDeck)
+	console.log(playingDeck)
+	
+	
 
 	/////////////////////////////////
 	// Function Deals Players Hand //
@@ -131,23 +126,24 @@ $(() => {
 		// I think this only works for one player, player 2 would have the same hand(not good)
 		// if multiplayer with 52 cards each player gets 6 piles of 4 and 4 cards do in the middle in th middle
 		// if single player with 28 cards, the player gets 6 piles and 4 cards go into the middle
-		for (let i = 0; i < shuffledDeck().length; i++) {
+		for (let i = 0; i < playingDeck.length - 4; i++) {
 			if (i < 4) {
-				player.hand[0].push(shuffledDeck()[i])
+				player.hand[0].push(playingDeck[i])
 			} else if (i < 8) {
-				player.hand[1].push(shuffledDeck()[i])
+				player.hand[1].push(playingDeck[i])
 			} else if (i < 12) {
-				player.hand[2].push(shuffledDeck()[i])
+				player.hand[2].push(playingDeck[i])
 			} else if (i < 16) {
-				player.hand[3].push(shuffledDeck()[i])
+				player.hand[3].push(playingDeck[i])
 			} else if (i < 20) {
-				player.hand[4].push(shuffledDeck()[i])
+				player.hand[4].push(playingDeck[i])
 			} else if (i < 24) {
-				player.hand[5].push(shuffledDeck()[i])
+				player.hand[5].push(playingDeck[i])
 			}
 		}
 	}
 	dealPlayerCards(playerOne)
+	console.log(playerOne)
 
 	// /////////////////////////////////////
 	// // Function Deals the Middle Cards //
@@ -156,16 +152,14 @@ $(() => {
 	const middleCards = [] //we have objects with the number and the suit
 
 	const dealMiddleCards = () => {
-		const $div = $('<div>')
 		// this pulls the middle cards from the last 4 postions in the shuffled deck
-		for (let i = shuffledDeck().length - 1; i >= shuffledDeck().length - 4; i--) {
-			middleCards.push(shuffledDeck()[i])
+		for (let i = playingDeck.length - 1; i >= playingDeck.length - 4; i--) {
+			console.log(i)
+			middleCards.push(playingDeck[i])
 		}
 	}
 	dealMiddleCards()
-	// console.log(middleCards[0])
-	// console.log(middleCards[0].rank)
-	// console.log(middleCards[0].suit)
+	console.log(middleCards)
 
 	///////////////////////////////////////////////////////
 	/// Function Renders Cards //
@@ -178,7 +172,6 @@ $(() => {
 			$value.text(middleCards[i].rank)
 			$suit.addClass('suit' + middleCards[i].suit)
 		}
-
 		for (let i = 0; i < 6; i++) {
 			for (let j = 0; j < 4; j++) {
 				$('.pile').find('.pileValue' + count).text(playerOne.hand[i][j].rank)
@@ -189,8 +182,6 @@ $(() => {
 	}
 	let counter = 0
 	renderCards(counter)
-	// console.log(middleCards)
-	// console.log(playerOne)
 
 	// //////////////////////////////////////////////////////
 	// // Function Swaps User card choice with middle card //
