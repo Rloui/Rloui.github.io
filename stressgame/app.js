@@ -76,13 +76,13 @@ $(() => {
 	///////////////////////////////////////////////////
 	const deckSizer = () => {
 		// returns resized deck array ofr player mode
-		let playersMode = prompt(
-			'what mode do you want to play in Mult-player or Single player? Type Single or Mult below'
-		)
+		// let playersMode = prompt(
+			// 'what mode do you want to play in Mult-player or Single player? Type Single or Mult below' // mult mode
+		// )
 		// resizes deck for multi player mode elss if single player mode
-		if (playersMode === 'Mult' || playersMode === 'mult') {
-			return deck
-		} else if (playersMode === 'Single' || playersMode === 'single') {
+		// if (playersMode === 'Mult' || playersMode === 'mult') {// mult mode
+			// return deck// mult mode
+		// } else if (playersMode === 'Single' || playersMode === 'single') {// mult mode
 			for (let i = 0; i < deck.length; i++) {
 				if (i === 7 || i === 14 || i === 21 || i === 28) {
 					for (let j = 0; j < 6; j++) {
@@ -91,7 +91,7 @@ $(() => {
 				}
 			}
 			return deck
-		}
+		// }// mult mode
 	}
 
 	// holeds the deck with the proper playing size
@@ -163,11 +163,14 @@ $(() => {
 	///////////////////////////////////////////////////////
 	const renderCards = () => {
 		let count = 0
-		console.log(middleCards)
+		// console.log(middleCards[0]) // undefined
 		for (let i = 0; i < middleCards.length; i++) {
 			
+			// console.log(middleCards[i])
+			// console.log(i)
+
 			$('#drawPiles').find('.value' + i).text(middleCards[i].rank)
-			$('#drawPiles').find('.suit' + i).addClass('suit' + middleCards[i].suit)
+			$('#drawPiles').find('.suit' + i).addClass('suit' + middleCards[i].suit) // diff
 			// console.log(middleCards[i])
 		}
 		for (let i = 0; i < 6; i++) {
@@ -179,21 +182,25 @@ $(() => {
 		}
 	}
 	renderCards()
-
+	
 	//////////////////////////////////////////////////////
 	// Function Swaps User card choice with middle card //
 	//////////////////////////////////////////////////////
 
-	const swap = (middleIndex, cardIndex, pile) => {            // this is good
-		let playerCardSwap = playerOne.hand[pile][cardIndex]    // good pcs
-		let middleCardSwap = middleCards[middleIndex]           // good mcs
+	const swap = (middleIndex, cardIndex, pile) => {        
+		let playerCardSwap = playerOne.hand[pile][cardIndex]  
+		let middleCardSwap = middleCards[middleIndex]    
 
+		console.log(playerOne.hand[pile][cardIndex])
+		console.log(middleCards[middleIndex])
 
-		// console.log(playerCardSwap)
 		//// With Splice ////
-		playerOne.hand[pile].splice(cardIndex, 1, middleCardSwap) // this works
-		middleCards.splice(middleIndex, 1, playerCardSwap)        // this works
+		playerOne.hand[pile].splice(cardIndex, 1, middleCardSwap)
+		middleCards.splice(middleIndex, 1, playerCardSwap)
 
+		console.log(playerOne.hand[pile][cardIndex])
+		console.log(middleCards[middleIndex])
+		
 		//// With splice and Push ////
 		// middleCards.splice(middleIndex, 1)
 		// middleCards.push(playerCardSwap)
@@ -204,39 +211,43 @@ $(() => {
 		renderCards()
 	}
 
-	// let click = false
-	// // let firstCardClicked = ''
-	// let selectedMiddleCard = ''
-	// let selectedPile = 0
-	// let selectedCard = 0
+	let click = false
 
-	// $('.card').on('click', (e) => {
+	let selectedMiddleCard = ''
+	let selectedPile = 0
+	let selectedCard = 0
+	
+	$('.card').on('click', (e) => {
 
-	// 	if (!click) { // makes the event handeler know if a card has been selected or not
-	// 		selectedMiddleCard = $(e.currentTarget).attr('id')
-	// 		return click = true
-	// 	}
+		if (!click) { // makes the event handeler know if a card has been selected or not
+			if ($(e.currentTarget).parent().attr('id') === 'drawPiles') {
+				selectedMiddleCard = $(e.currentTarget).attr('id') // the value of card in middle array
+				console.log('middle card was clicked')
+			} else if ($(e.currentTarget).parent().attr('class') === 'pile') {
+				selectedCard = $(e.currentTarget).attr('id')
+				selectedPile = $(e.currentTarget).parent().attr('id')
+				console.log('regular card was clicked')
+			}
+			return click = true
+		}
 
-	// 	// let selectedMiddleCard = firstCardClicked
-	// 	// let selectedPile = 0
-	// 	// let selectedCard = 0
+		if ($(e.currentTarget).parent().attr('class') === 'pile') {
+			selectedCard = $(e.currentTarget).attr('id')
+			selectedPile = $(e.currentTarget).parent().attr('id')
+			console.log('regular card was clicked')
+		} else if ($(e.currentTarget).parent().attr('id') === 'drawPiles') {
+			selectedMiddleCard = $(e.currentTarget).attr('id') // the value of card in middle array
+			console.log('middle card was clicked')
+		}
 
-	// 	// if ($(e.currentTarget).parent().attr('id') === 'drawPiles') {
-	// 	// 	selectedMiddleCard = $(e.currentTarget).attr('id')
-	// 	// }
-
-	// 	if ($(e.currentTarget).parent().attr('class') === 'pile') {
-	// 		selectedCard = $(e.currentTarget).attr('id')
-	// 		selectedPile = $(e.currentTarget).parent().attr('id')
-	// 	}
-	// 	e.stopPropagation() // stops event bubbling
-
-	// 	console.log(selectedMiddleCard, selectedCard, selectedPile)
-
-	// 	click = false
+		console.log(selectedMiddleCard, selectedCard, selectedPile)
 		
-	// 	swap(selectedMiddleCard, selectedCard, selectedPile) // <<<<<<<<<<<<<<<<<<<<<<<<<<<< ??????????????
-	// })
+		swap(selectedMiddleCard, selectedCard, selectedPile)
+
+		
+		e.stopPropagation() // stops event bubbling
+		return click = false
+	})
 
 	const startSwap = () => {
 		let selectedMiddleCard = prompt('which card do you want to take from the middle? 1 - 4:')
@@ -245,9 +256,14 @@ $(() => {
 
 		swap(selectedMiddleCard - 1, selectedCard - 1, selectedPile - 1)
 	}
+	// $('.card').on('click', startSwap)
 
-	$('.card').on('click', startSwap)
+	const checkmatches = () => {
+		// if player hand1 card one = a number x 
+	}
 
+
+})
 
 
 ////////////////////////////////////////////////////////
@@ -282,8 +298,6 @@ $(() => {
 	// 	playGame()
 	// }
 	// playGame()
-})
-
 // create winn logic
 // if player filps all decks up display stress
 // check finctuion checking all the deck
