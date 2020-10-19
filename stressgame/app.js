@@ -189,56 +189,52 @@ $(() => {
 		let middleCardSwap = middleCards[middleIndex]           // good mcs
 
 
-		console.log(playerCardSwap)
+		// console.log(playerCardSwap)
 		//// With Splice ////
-		// playerOne.hand[pile].splice(cardIndex, 1, middleCardSwap) // this works
-		// middleCards.splice(middleIndex, 1, playerCardSwap)        // this works
+		playerOne.hand[pile].splice(cardIndex, 1, middleCardSwap) // this works
+		middleCards.splice(middleIndex, 1, playerCardSwap)        // this works
 
 		//// With splice and Push ////
-		middleCards.splice(middleIndex, 1)
-		middleCards.push(playerCardSwap)
+		// middleCards.splice(middleIndex, 1)
+		// middleCards.push(playerCardSwap)
 
-		playerOne.hand[pile].splice(cardIndex, 1)
-		playerOne.hand[pile].push(middleCardSwap)
+		// playerOne.hand[pile].splice(cardIndex, 1)
+		// playerOne.hand[pile].push(middleCardSwap)
 
 		renderCards()
 	}
 
-	let click = false
-	// let firstCardClicked = ''
-	let selectedMiddleCard = ''
+	// let click = false
+	// // let firstCardClicked = ''
+	// let selectedMiddleCard = ''
 
-	$('.card').on('click', (e) => {
+	// $('.card').on('click', (e) => {
 
-		if (!click) { // makes the event handeler know if a card has been selected or not
-			selectedMiddleCard = $(e.currentTarget).attr('id')
-			return click = true
-		}
+	// 	if (!click) { // makes the event handeler know if a card has been selected or not
+	// 		selectedMiddleCard = $(e.currentTarget).attr('id')
+	// 		return click = true
+	// 	}
 
-		// let selectedMiddleCard = firstCardClicked
-		let selectedPile = 0
-		let selectedCard = 0
+	// 	// let selectedMiddleCard = firstCardClicked
+	// 	let selectedPile = 0
+	// 	let selectedCard = 0
 
-		// if ($(e.currentTarget).parent().attr('id') === 'drawPiles') {
-		// 	selectedMiddleCard = $(e.currentTarget).attr('id')
-		// }
+	// 	// if ($(e.currentTarget).parent().attr('id') === 'drawPiles') {
+	// 	// 	selectedMiddleCard = $(e.currentTarget).attr('id')
+	// 	// }
 
-		if ($(e.currentTarget).parent().attr('class') === 'pile') {
-			selectedCard = $(e.currentTarget).attr('id')
-			selectedPile = $(e.currentTarget).parent().attr('id')
-		}
-		e.stopPropagation() // stops event bubbling
+	// 	if ($(e.currentTarget).parent().attr('class') === 'pile') {
+	// 		selectedCard = $(e.currentTarget).attr('id')
+	// 		selectedPile = $(e.currentTarget).parent().attr('id')
+	// 	}
+	// 	e.stopPropagation() // stops event bubbling
 
-		console.log(selectedMiddleCard, selectedCard, selectedPile)
+	// 	console.log(selectedMiddleCard, selectedCard, selectedPile)
 
-		click = false
+	// 	click = false
 		
-		swap(parseInt(selectedMiddleCard), parseInt(selectedCard), selectedPile) // <<<<<<<<<<<<<<<<<<<<<<<<<<<< ??????????????
-	})
-
-
-
-	
+	// 	swap(parseInt(selectedMiddleCard), parseInt(selectedCard), selectedPile) // <<<<<<<<<<<<<<<<<<<<<<<<<<<< ??????????????
+	// })
 
 	const startSwap = () => {
 		let selectedMiddleCard = prompt('which card do you want to take from the middle?')
@@ -248,18 +244,15 @@ $(() => {
 		swap(selectedMiddleCard, selectedCard, selectedPile)
 	}
 
-	// $('html').load(renderCards())
-	// $('.card').on('click', startSwap)
-
-	// $(event.currentTarget).toggleClass('card-back')
+	$('.card').on('click', startSwap)
 
 	// const gameSetUp = () => {
-	//     // alert('Welcome to the Game')
-	//     // alert('We are creating your deck')
-	//     createDeck()
-	//     // alert('We are sizing the deck for single or multiplayer')
+	//     alert('Welcome to the Game')
+	//     alert('We are creating your deck')
+	//     // createDeck()
+	//     alert('We are sizing the deck for single or multiplayer')
 	//     // playingDeck = deckSizer()
-	//     // alert('We are shuffling your deck')
+	//     alert('We are shuffling your deck')
 	//     shuffledDeck()
 	// }
 	// gameSetUp()
@@ -273,11 +266,14 @@ $(() => {
 	//     // alert('this is your hand')
 	// 	// alert(playerOne.pileOne[0].rank)
 
-	// 	let selectedMiddleCard = prompt('which card do you want to take from the middle?')
-	// 	let selectedPile = prompt('Which pile do you want to select') // One
-	// 	let selectedCard = prompt('which card do you want to take from the your hand?')
+	// 	// let selectedMiddleCard = prompt('which card do you want to take from the middle?')
+	// 	// let selectedPile = prompt('Which pile do you want to select') // One
+	// 	// let selectedCard = prompt('which card do you want to take from the your hand?')
 
-	// 	swap(selectedMiddleCard - 1, selectedCard - 1, selectedPile) // how do I get the users choice for a pile and use it when its an object and key
+	// 	// swap(selectedMiddleCard - 1, selectedCard - 1, selectedPile) // how do I get the users choice for a pile and use it when its an object and key
+
+	// 	$('.card').on('click', startSwap)
+	// 	playGame()
 	// }
 	// playGame()
 })
@@ -295,37 +291,3 @@ $(() => {
 // create deck flip down function (not absolutely neccesary)
 
 // create count down function (not absolutely neccesary)
-
-////////////////////////////////////////////////////////////////////////////////////////////////
-
-// $('.card').on('click', (e) => {
-
-// 	let selectedMiddleCard = 0
-// 	let selectedPile = 0
-// 	let selectedCard = 0
-
-// 	if ($(e.currentTarget).parent().attr('id') === 'drawPiles') {
-// 		selectedMiddleCard = $(e.currentTarget).attr('id')
-// 	}
-// 	else if ($(e.currentTarget).parent().attr('class') === 'pile') {
-// 		selectedCard = $(e.currentTarget).attr('id')
-// 		selectedPile = $(e.currentTarget).parent().attr('id')
-// 	}
-// 	console.log(selectedMiddleCard)
-// 	e.stopPropagation() // stops event bubbling
-// })
-// $('.card').on('click', (e) => {
-// 	let selectedMiddleCard = 0
-// 	let selectedPile = 0
-// 	let selectedCard = 0
-
-// 	if ($(e.currentTarget).parent().attr('id') === 'drawPiles') {
-// 		selectedMiddleCard = $(e.currentTarget).attr('id')
-// 	} else if ($(e.currentTarget).parent().attr('class') === 'pile') {
-// 		selectedCard = $(e.currentTarget).attr('id')
-// 		selectedPile = $(e.currentTarget).parent().attr('id')
-// 	}
-// 	e.stopPropagation() // stops event bubbling
-
-// 	swap(selectedMiddleCard, selectedCard, selectedPile) // <<<<<<<<<<<<<<<<<<<<<<<<<<<<
-// })

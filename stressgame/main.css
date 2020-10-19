@@ -6,7 +6,11 @@
 }
 
 body {
-    background-color: green;
+    /* background-color: green; */
+    /* background: url(https://i.pinimg.com/736x/80/6a/9b/806a9b182fe9b73685fa0074e1a6c4b1.jpg); */
+    background: url(https://miro.medium.com/max/1760/0*caZPEDJcq61DvLAx.);
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 100vh;
     width: 100vw;
 }
@@ -14,6 +18,13 @@ body {
 header {
     text-align: center;
     height: 5vh;
+    color: whitesmoke;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
 }
 
 .flex-nav {
@@ -33,9 +44,11 @@ header {
 #drawPiles .card {
     height: 180px;
     width: 140px;
+    border: 1px solid black;
     background-color: white;
     margin: 0 10px;
-    font-size: 30px;
+    font-size: 40px;
+    border-radius: 7px;
     display: flex;
     justify-content: center;
     /* align-items: ; */
@@ -68,8 +81,15 @@ header {
     border: 1px solid black;
     background-color: white;
     margin: 0 10px;
-    font-size: 30px;
+    font-size: 40px;
+    border-radius: 7px;
     display: flex;
+    justify-content: center;
+}
+
+.suit-flexContainer {
+    display: flex;
+    align-items: center;
     justify-content: center;
 }
 
@@ -95,6 +115,31 @@ header {
     background: url('/suitSprite.png') no-repeat -107px -107px;
 	width: 88px;
 	height: 87px;
+}
+ h2 {
+     text-align: center;
+     color: white;
+ }
+.directions-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+}
+
+div #directions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 540px;
+    width: 420px;
+}
+div .spadesBack {
+    background: url('/suitSprite.png');
+    background-size: cover;
+	width: 300px;
+	height: 300px;
 }
 
 
