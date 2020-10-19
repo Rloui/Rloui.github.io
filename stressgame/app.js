@@ -207,6 +207,8 @@ $(() => {
 	// let click = false
 	// // let firstCardClicked = ''
 	// let selectedMiddleCard = ''
+	// let selectedPile = 0
+	// let selectedCard = 0
 
 	// $('.card').on('click', (e) => {
 
@@ -216,8 +218,8 @@ $(() => {
 	// 	}
 
 	// 	// let selectedMiddleCard = firstCardClicked
-	// 	let selectedPile = 0
-	// 	let selectedCard = 0
+	// 	// let selectedPile = 0
+	// 	// let selectedCard = 0
 
 	// 	// if ($(e.currentTarget).parent().attr('id') === 'drawPiles') {
 	// 	// 	selectedMiddleCard = $(e.currentTarget).attr('id')
@@ -233,15 +235,15 @@ $(() => {
 
 	// 	click = false
 		
-	// 	swap(parseInt(selectedMiddleCard), parseInt(selectedCard), selectedPile) // <<<<<<<<<<<<<<<<<<<<<<<<<<<< ??????????????
+	// 	swap(selectedMiddleCard, selectedCard, selectedPile) // <<<<<<<<<<<<<<<<<<<<<<<<<<<< ??????????????
 	// })
 
 	const startSwap = () => {
-		let selectedMiddleCard = prompt('which card do you want to take from the middle?')
-		let selectedPile = prompt('Which pile do you want to select')
-		let selectedCard = prompt('which card do you want to take from the your hand?')
+		let selectedMiddleCard = prompt('which card do you want to take from the middle? 1 - 4:')
+		let selectedPile = prompt('Which pile do you want to select? 1 - 6')
+		let selectedCard = prompt('which card do you want to take from the your hand? 1 - 4:')
 
-		swap(selectedMiddleCard, selectedCard, selectedPile)
+		swap(selectedMiddleCard - 1, selectedCard - 1, selectedPile - 1)
 	}
 
 	$('.card').on('click', startSwap)
