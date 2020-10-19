@@ -115,7 +115,6 @@ $(() => {
 		return playingDeck
 	}
 	shuffledDeck()
-	// console.log(playingDeck)
 
 	/////////////////////////////////
 	// Function Deals Players Hand //
@@ -166,9 +165,6 @@ $(() => {
 		// console.log(middleCards[0]) // undefined
 		for (let i = 0; i < middleCards.length; i++) {
 			
-			// console.log(middleCards[i])
-			// console.log(i)
-
 			$('#drawPiles').find('.value' + i).text(middleCards[i].rank)
 			$('#drawPiles').find('.suit' + i).addClass('suit' + middleCards[i].suit) // diff
 			// console.log(middleCards[i])
@@ -239,12 +235,9 @@ $(() => {
 			selectedMiddleCard = $(e.currentTarget).attr('id') // the value of card in middle array
 			console.log('middle card was clicked')
 		}
-
-		console.log(selectedMiddleCard, selectedCard, selectedPile)
 		
 		swap(selectedMiddleCard, selectedCard, selectedPile)
 
-		
 		e.stopPropagation() // stops event bubbling
 		return click = false
 	})
