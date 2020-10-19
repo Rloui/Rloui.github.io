@@ -27,17 +27,20 @@ Thursday:
 Friday: 
 - reveiw game
 
-Saturday:
-- 
-
-Sunday:
-- 
+Technologies Used
+- HTML
+- CSS
+- Javascript
+- JQuery
 
 Chosing Data Structure
 - for the cards an object should be used be cause it will have three properties, keys: color, suit, and values
 - use a class to create the blueprint for each card object
 Directions
 Goal: be the first to match each deck of 4 cards with the same value
+
+
+Approach Taken
 
 The Set up
 - multiplayer
@@ -68,6 +71,12 @@ Winning
 14. player yells stress
 15. player won the game it they beat the other person or the time
 
+GitHub Repo - https://github.com/Rloui/Rloui.github.io/tree/master/stressgame
+Site - https://rloui.github.io/
+
+
+
 Resources
 http://www.spritecow.com/
 https://www.thatsoftwaredude.com/content/6196/coding-a-card-deck-in-javascript
+

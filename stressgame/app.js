@@ -15,8 +15,8 @@ $(() => {
 		constructor(suit, rank, color, suitClass) {
 			this.suit = suit
 			this.rank = rank
-			this.color = color
-			this.suitClass = suitClass
+			// this.color = color
+			// this.suitClass = suitClass
 		}
 	}
 
@@ -38,7 +38,7 @@ $(() => {
 	const suits = [ 'Clubs', 'Diamonds', 'Hearts', 'Spades' ]
 
 	// color: red and black
-	const cardColor = [ 'black', 'red' ]
+	// const cardColor = [ 'black', 'red' ]
 
 	// ranks: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K
 	const ranks = [ 'A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K' ]
@@ -57,15 +57,15 @@ $(() => {
 			// second loop creates the card value
 			for (let k = 0; k < ranks.length; k++) {
 				// if else statement specifies the color of the card
-				if (suits[j] === 'Clubs' || suits[j] === 'Spades') {
-					let suitColor = cardColor[0]
-					const deckCreation = new Card(suits[j], ranks[k], suitColor, '.' + suits[j])
+				// if (suits[j] === 'Clubs' || suits[j] === 'Spades') {
+					// let suitColor = cardColor[0]
+					const deckCreation = new Card(suits[j], ranks[k])//, suitColor, '.' + suits[j])
 					deck.push(deckCreation)
-				} else {
-					suitColor = cardColor[1]
-					const deckCreation = new Card(suits[j], ranks[k], suitColor, '.' + suits[j])
-					deck.push(deckCreation)
-				}
+				// } else {
+					// suitColor = cardColor[1]
+					// const deckCreation = new Card(suits[j], ranks[k])//, suitColor, '.' + suits[j])
+					// deck.push(deckCreation)
+				// }
 			}
 		}
 	}
@@ -116,8 +116,6 @@ $(() => {
 	}
 	shuffledDeck()
 	// console.log(playingDeck)
-	
-	
 
 	/////////////////////////////////
 	// Function Deals Players Hand //
@@ -143,7 +141,7 @@ $(() => {
 		}
 	}
 	dealPlayerCards(playerOne)
-	console.log(playerOne)
+	// console.log(playerOne)
 
 	// /////////////////////////////////////
 	// // Function Deals the Middle Cards //
@@ -158,19 +156,19 @@ $(() => {
 		}
 	}
 	dealMiddleCards()
-	console.log(middleCards)
+	// console.log(middleCards)
 
 	///////////////////////////////////////////////////////
 	/// Function Renders Cards //
 	///////////////////////////////////////////////////////
 	const renderCards = () => {
 		let count = 0
+		console.log(middleCards)
 		for (let i = 0; i < middleCards.length; i++) {
-			const $value = $('.value' + i)
-			const $suit = $('.suit' + i)
-
-			$value.text(middleCards[i].rank)
-			$suit.addClass('suit' + middleCards[i].suit)
+			
+			$('#drawPiles').find('.value' + i).text(middleCards[i].rank)
+			$('#drawPiles').find('.suit' + i).addClass('suit' + middleCards[i].suit)
+			// console.log(middleCards[i])
 		}
 		for (let i = 0; i < 6; i++) {
 			for (let j = 0; j < 4; j++) {
@@ -186,79 +184,74 @@ $(() => {
 	// Function Swaps User card choice with middle card //
 	//////////////////////////////////////////////////////
 
-	const swap = (middleIndex, cardIndex, pile) => {
-		let playerCardSwap = playerOne.hand[pile][cardIndex]
-		let middleCardSwap = middleCards[middleIndex]
+	const swap = (middleIndex, cardIndex, pile) => {            // this is good
+		let playerCardSwap = playerOne.hand[pile][cardIndex]    // good pcs
+		let middleCardSwap = middleCards[middleIndex]           // good mcs
 
+
+		console.log(playerCardSwap)
 		//// With Splice ////
-		playerOne.hand[pile].splice(cardIndex, 1, middleCardSwap)
-		middleCards.splice(middleIndex, 1, playerCardSwap)
+		// playerOne.hand[pile].splice(cardIndex, 1, middleCardSwap) // this works
+		// middleCards.splice(middleIndex, 1, playerCardSwap)        // this works
 
 		//// With splice and Push ////
-		// middleCards.splice(middleIndex, 1)
-		// middleCards.push(playerCardSwap)
+		middleCards.splice(middleIndex, 1)
+		middleCards.push(playerCardSwap)
 
-		// playerOne.hand[pile].splice(cardIndex, 1)
-		// playerOne.hand[pile].push(middleCardSwap)
+		playerOne.hand[pile].splice(cardIndex, 1)
+		playerOne.hand[pile].push(middleCardSwap)
 
 		renderCards()
 	}
+
+	let click = false
+	// let firstCardClicked = ''
+	let selectedMiddleCard = ''
+
+	$('.card').on('click', (e) => {
+
+		if (!click) { // makes the event handeler know if a card has been selected or not
+			selectedMiddleCard = $(e.currentTarget).attr('id')
+			return click = true
+		}
+
+		// let selectedMiddleCard = firstCardClicked
+		let selectedPile = 0
+		let selectedCard = 0
+
+		// if ($(e.currentTarget).parent().attr('id') === 'drawPiles') {
+		// 	selectedMiddleCard = $(e.currentTarget).attr('id')
+		// }
+
+		if ($(e.currentTarget).parent().attr('class') === 'pile') {
+			selectedCard = $(e.currentTarget).attr('id')
+			selectedPile = $(e.currentTarget).parent().attr('id')
+		}
+		e.stopPropagation() // stops event bubbling
+
+		console.log(selectedMiddleCard, selectedCard, selectedPile)
+
+		click = false
+		
+		swap(parseInt(selectedMiddleCard), parseInt(selectedCard), selectedPile) // <<<<<<<<<<<<<<<<<<<<<<<<<<<< ??????????????
+	})
+
+
+
+	
 
 	const startSwap = () => {
 		let selectedMiddleCard = prompt('which card do you want to take from the middle?')
 		let selectedPile = prompt('Which pile do you want to select')
 		let selectedCard = prompt('which card do you want to take from the your hand?')
 
-		// console.log(selectedMiddleCard)
-		// console.log(selectedCard)
-		// console.log(selectedPile)
-
 		swap(selectedMiddleCard, selectedCard, selectedPile)
-
-		console.log(middleCards)
-		console.log(playerOne.hand[0])
 	}
 
+	// $('html').load(renderCards())
 	// $('.card').on('click', startSwap)
-	
-	
-	$('.card').on('click', (e) => {
 
-		let selectedMiddleCard = 0
-		let selectedPile = 0
-		let selectedCard = 0
-
-		if ($(e.currentTarget).parent().attr('id') === 'drawPiles') {
-			selectedMiddleCard = $(e.currentTarget).attr('id')
-		} 
-		else if ($(e.currentTarget).parent().attr('class') === 'pile') {
-			selectedCard = $(e.currentTarget).attr('id')
-			selectedPile = $(e.currentTarget).parent().attr('id')
-		}
-		console.log('card was clicked')
-		
-		console.log('middle: ' + selectedMiddleCard)
-		console.log('card: ' + selectedCard)
-		console.log('pile: ' + selectedPile)
-
-		e.stopPropagation() // stops event bubbling
-
-	})
-	// console.log($('.card').attr('id'))
-	// console.log(('.card'))
-	// elem.on(STRING, CALLBACK);
-
-	// i need to change the card arrays of middleCards and playerOne and when that is done I need to rerender the cards on to the page
-	// the key values that I need to change are the rank and the suit
 	// $(event.currentTarget).toggleClass('card-back')
-
-
-
-
-
-
-
-
 
 	// const gameSetUp = () => {
 	//     // alert('Welcome to the Game')
@@ -302,3 +295,37 @@ $(() => {
 // create deck flip down function (not absolutely neccesary)
 
 // create count down function (not absolutely neccesary)
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+// $('.card').on('click', (e) => {
+
+// 	let selectedMiddleCard = 0
+// 	let selectedPile = 0
+// 	let selectedCard = 0
+
+// 	if ($(e.currentTarget).parent().attr('id') === 'drawPiles') {
+// 		selectedMiddleCard = $(e.currentTarget).attr('id')
+// 	}
+// 	else if ($(e.currentTarget).parent().attr('class') === 'pile') {
+// 		selectedCard = $(e.currentTarget).attr('id')
+// 		selectedPile = $(e.currentTarget).parent().attr('id')
+// 	}
+// 	console.log(selectedMiddleCard)
+// 	e.stopPropagation() // stops event bubbling
+// })
+// $('.card').on('click', (e) => {
+// 	let selectedMiddleCard = 0
+// 	let selectedPile = 0
+// 	let selectedCard = 0
+
+// 	if ($(e.currentTarget).parent().attr('id') === 'drawPiles') {
+// 		selectedMiddleCard = $(e.currentTarget).attr('id')
+// 	} else if ($(e.currentTarget).parent().attr('class') === 'pile') {
+// 		selectedCard = $(e.currentTarget).attr('id')
+// 		selectedPile = $(e.currentTarget).parent().attr('id')
+// 	}
+// 	e.stopPropagation() // stops event bubbling
+
+// 	swap(selectedMiddleCard, selectedCard, selectedPile) // <<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// })
