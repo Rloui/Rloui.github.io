@@ -67,6 +67,7 @@ The Set up
 5. flip the last pile up so that it is visable
 
 Gameplay
+
 5. count douwn from 3 and the game begins
 
 6. each player picks up one deck at a time and flips it up
@@ -80,6 +81,7 @@ Gameplay
 10. player repeats this for all other deck until all their decks match
 
 Winning
+
 11. when player has a set of 4 that match they flip that pile up
 
 12. player verifies they have all matching cards in all piles
@@ -96,6 +98,6 @@ Unsolved Problems
 
 
 Resources
-http://www.spritecow.com/
-https://www.thatsoftwaredude.com/content/6196/coding-a-card-deck-in-javascript
+- used to get the location of card suit sprite http://www.spritecow.com/
+- used as reference for suffle function: https://www.thatsoftwaredude.com/content/6196/coding-a-card-deck-in-javascript
 
