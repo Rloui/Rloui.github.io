@@ -54,7 +54,6 @@ The Set up
 4. each player gets 6 piles of 4 cards
 
 3. flip the last pile up so that it is visable
-
 -single player
 1. cut deck of 52 to 28 cards
 
