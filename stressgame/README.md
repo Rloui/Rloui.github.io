@@ -96,6 +96,7 @@ Winning
 Unsolved Problems
 - the when splicing the array and pushing the new cards in there respective array there is a problem with the rendering of the correct suit of the card
 
+- because of the previous problem the, the winning conditions are unsolved problems as well
 
 Resources
 - used to get the location of card suit sprite http://www.spritecow.com/
