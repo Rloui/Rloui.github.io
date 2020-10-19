@@ -167,13 +167,13 @@ $(() => {
 		for (let i = 0; i < middleCards.length; i++) {
 			
 			$('#drawPiles').find('.value' + i).text(middleCards[i].rank)
-			$('#drawPiles').find('.suit' + i).addClass('suit' + middleCards[i].suit)
+			// $('#drawPiles').find('.suit' + i).addClass('suit' + middleCards[i].suit)
 			// console.log(middleCards[i])
 		}
 		for (let i = 0; i < 6; i++) {
 			for (let j = 0; j < 4; j++) {
 				$('.pile').find('.pileValue' + count).text(playerOne.hand[i][j].rank)
-				$('.pile').find('.pileSuit' + count).addClass('suit' + playerOne.hand[i][j].suit)
+				// $('.pile').find('.pileSuit' + count).addClass('suit' + playerOne.hand[i][j].suit)
 				count++
 			}
 		}
@@ -204,39 +204,39 @@ $(() => {
 		renderCards()
 	}
 
-	// let click = false
-	// // let firstCardClicked = ''
-	// let selectedMiddleCard = ''
-	// let selectedPile = 0
-	// let selectedCard = 0
+	let click = false
+	// let firstCardClicked = ''
+	let selectedMiddleCard = ''
+	let selectedPile = 0
+	let selectedCard = 0
 
-	// $('.card').on('click', (e) => {
+	$('.card').on('click', (e) => {
 
-	// 	if (!click) { // makes the event handeler know if a card has been selected or not
-	// 		selectedMiddleCard = $(e.currentTarget).attr('id')
-	// 		return click = true
-	// 	}
+		if (!click) { // makes the event handeler know if a card has been selected or not
+			selectedMiddleCard = $(e.currentTarget).attr('id')
+			return click = true
+		}
 
-	// 	// let selectedMiddleCard = firstCardClicked
-	// 	// let selectedPile = 0
-	// 	// let selectedCard = 0
+		// let selectedMiddleCard = firstCardClicked
+		// let selectedPile = 0
+		// let selectedCard = 0
 
-	// 	// if ($(e.currentTarget).parent().attr('id') === 'drawPiles') {
-	// 	// 	selectedMiddleCard = $(e.currentTarget).attr('id')
-	// 	// }
+		// if ($(e.currentTarget).parent().attr('id') === 'drawPiles') {
+		// 	selectedMiddleCard = $(e.currentTarget).attr('id')
+		// }
 
-	// 	if ($(e.currentTarget).parent().attr('class') === 'pile') {
-	// 		selectedCard = $(e.currentTarget).attr('id')
-	// 		selectedPile = $(e.currentTarget).parent().attr('id')
-	// 	}
-	// 	e.stopPropagation() // stops event bubbling
+		if ($(e.currentTarget).parent().attr('class') === 'pile') {
+			selectedCard = $(e.currentTarget).attr('id')
+			selectedPile = $(e.currentTarget).parent().attr('id')
+		}
+		e.stopPropagation() // stops event bubbling
 
-	// 	console.log(selectedMiddleCard, selectedCard, selectedPile)
+		console.log(selectedMiddleCard, selectedCard, selectedPile)
 
-	// 	click = false
+		click = false
 		
-	// 	swap(selectedMiddleCard, selectedCard, selectedPile) // <<<<<<<<<<<<<<<<<<<<<<<<<<<< ??????????????
-	// })
+		swap(selectedMiddleCard, selectedCard, selectedPile) // <<<<<<<<<<<<<<<<<<<<<<<<<<<< ??????????????
+	})
 
 	const startSwap = () => {
 		let selectedMiddleCard = prompt('which card do you want to take from the middle? 1 - 4:')
@@ -246,7 +246,11 @@ $(() => {
 		swap(selectedMiddleCard - 1, selectedCard - 1, selectedPile - 1)
 	}
 
-	$('.card').on('click', startSwap)
+	// $('.card').on('click', startSwap)
+
+
+
+////////////////////////////////////////////////////////
 
 	// const gameSetUp = () => {
 	//     alert('Welcome to the Game')

@@ -94,25 +94,25 @@ nav a {
 }
 
 .suitHearts {
-	background: url('/suitSprite.png') no-repeat -112px -4px;
+	background: url('./suitSprite.png') no-repeat -112px -4px;
 	width: 78px;
 	height: 89px;
 }
 
 .suitSpades {
-	background: url('/suitSprite.png') no-repeat -5px -3px;
+	background: url('./suitSprite.png') no-repeat -5px -3px;
 	width: 69px;
 	height: 91px;
 }
 
 .suitDiamonds {
-	background: url('/suitSprite.png') no-repeat -7px -106px;
+	background: url('./suitSprite.png') no-repeat -7px -106px;
 	width: 65px;
 	height: 89px;
 }
 
 .suitClubs {
-	background: url('/suitSprite.png') no-repeat -107px -107px;
+	background: url('./suitSprite.png') no-repeat -107px -107px;
 	width: 88px;
 	height: 87px;
 }
@@ -136,7 +136,7 @@ div #directions {
 	width: 420px;
 }
 div .spadesBack {
-	background: url('/suitSprite.png');
+	background: url('./suitSprite.png');
 	background-size: cover;
 	width: 300px;
 	height: 300px;
