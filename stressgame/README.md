@@ -1,6 +1,8 @@
 GitHub Repo - https://github.com/Rloui/Rloui.github.io/tree/master/stressgame
 Site - https://rloui.github.io/stressgame/
 
+Approach:
+
 Friday:
 - choose project Idea
 
@@ -39,11 +41,9 @@ Technologies Used
 Chosing Data Structure
 - for the cards an object should be used be cause it will have three properties, keys: color, suit, and values
 - use a class to create the blueprint for each card object
+
 Directions
-Goal: be the first to match each deck of 4 cards with the same value
-
-
-Approach Taken
+- Goal: to match each deck of 4 cards with the same rank
 
 The Set up
 - multiplayer
