@@ -167,13 +167,13 @@ $(() => {
 		for (let i = 0; i < middleCards.length; i++) {
 			
 			$('#drawPiles').find('.value' + i).text(middleCards[i].rank)
-			// $('#drawPiles').find('.suit' + i).addClass('suit' + middleCards[i].suit)
+			$('#drawPiles').find('.suit' + i).addClass('suit' + middleCards[i].suit)
 			// console.log(middleCards[i])
 		}
 		for (let i = 0; i < 6; i++) {
 			for (let j = 0; j < 4; j++) {
 				$('.pile').find('.pileValue' + count).text(playerOne.hand[i][j].rank)
-				// $('.pile').find('.pileSuit' + count).addClass('suit' + playerOne.hand[i][j].suit)
+				$('.pile').find('.pileSuit' + count).addClass('suit' + playerOne.hand[i][j].suit)
 				count++
 			}
 		}
