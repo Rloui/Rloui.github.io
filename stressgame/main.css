@@ -28,7 +28,7 @@ nav a {
 }
 
 .flex-nav {
-	height: 5vh;
+	height: 8vh;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
