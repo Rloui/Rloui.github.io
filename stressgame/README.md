@@ -94,9 +94,14 @@ Winning
 
 
 Unsolved Problems
-- the when splicing the array and pushing the new cards in there respective array there is a problem with the rendering of the correct suit of the card
+- when rendering the hand and middle card arrays the correct suits are not rendering to the correct card
+        -something is going on with the classes and how when I add a class 2 classe end up on the same div and the latter class take control of the image presented which isnt the right class
 
-- because of the previous problem the, the winning conditions are unsolved problems as well
+- there is a problem with my click function when the user clicks on 2 cards from their hand in a row or middle card it stores those card positions and in turn messing up the swap. Right now you have to alternate only clicking middle card and then a pile card and vice versa
+
+- the winning conditions are based on the rank of the card because of the previous problem I was not able to work on this. If I were to do this I would make a loop that compares the first card of a pile to the rest of the cards of that pile and repeat this for every hand
+
+- also all aspects of the page are not responsive, only some elements are. This in turn shifts the rows, columns, and headers of the game
 
 Resources
 - used to get the location of card suit sprite http://www.spritecow.com/

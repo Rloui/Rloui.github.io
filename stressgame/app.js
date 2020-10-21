@@ -162,20 +162,24 @@ $(() => {
 	///////////////////////////////////////////////////////
 	const renderCards = () => {
 		let count = 0
-		// console.log(middleCards[0]) // undefined
+		// console.log(`before: ${middleCards[0].suit}`)
+		// console.log(`before: ${playerOne.hand[0][0].suit}`)// something is going on with the classes and how when I add a class 2 classe end up on the same div and the latter class take control of the image presented which isnt the right class THIS WAS FIXXED
+
 		for (let i = 0; i < middleCards.length; i++) {
 			
 			$('#drawPiles').find('.value' + i).text(middleCards[i].rank)
-			$('#drawPiles').find('.suit' + i).addClass('suit' + middleCards[i].suit) // diff
+			$('#drawPiles').find('.suit' + i).addClass('suit' + middleCards[i].suit)// problem with the suit of the player hand rendering
 			// console.log(middleCards[i])
 		}
+		// console.log(middleCards[0].suit)
 		for (let i = 0; i < 6; i++) {
 			for (let j = 0; j < 4; j++) {
 				$('.pile').find('.pileValue' + count).text(playerOne.hand[i][j].rank)
-				$('.pile').find('.pileSuit' + count).addClass('suit' + playerOne.hand[i][j].suit)
+				$('.pile').find('.pileSuit' + count).addClass('suit' + playerOne.hand[i][j].suit)// problem with the suit of the player hand rendering
 				count++
 			}
 		}
+		// console.log(playerOne.hand[0][0].suit) 
 	}
 	renderCards()
 	
@@ -185,17 +189,31 @@ $(() => {
 
 	const swap = (middleIndex, cardIndex, pile) => {        
 		let playerCardSwap = playerOne.hand[pile][cardIndex]  
-		let middleCardSwap = middleCards[middleIndex]    
+		let middleCardSwap = middleCards[middleIndex]
 
-		console.log(playerOne.hand[pile][cardIndex])
-		console.log(middleCards[middleIndex])
+		// console.log(middleIndex, cardIndex, pile)
+
+
+		
+		// console.log('suit' + middleCards[middleIndex].suit)
+
+		////////////////////////////
+		///// Removing the class fixes the double class issue that messed up the render
+		///////////////////////////
+		$('.suit' + middleIndex).removeClass('suit' + middleCards[middleIndex].suit)
+		$('.pileSuit' + cardIndex).removeClass('suit' + playerOne.hand[pile][cardIndex].suit) // pile doesn't work => card index is not supposed to be in the beginning of this, the way the counter renders cards going from 0 to 23 in conjunction with the classes that have that throws everything off <<<==== because of the counting convention NEW PROBLEM
+
+
 
 		//// With Splice ////
 		playerOne.hand[pile].splice(cardIndex, 1, middleCardSwap)
 		middleCards.splice(middleIndex, 1, playerCardSwap)
 
-		console.log(playerOne.hand[pile][cardIndex])
-		console.log(middleCards[middleIndex])
+		
+		
+		// $('.suit' + middleIndex).removeClass('suit' + middleCards[middleIndex].suit)
+
+		// $('.pileSuit' + pile).removeClass('suit' + playerOne.hand[pile][cardIndex].suit)
 		
 		//// With splice and Push ////
 		// middleCards.splice(middleIndex, 1)
@@ -218,11 +236,11 @@ $(() => {
 		if (!click) { // makes the event handeler know if a card has been selected or not
 			if ($(e.currentTarget).parent().attr('id') === 'drawPiles') {
 				selectedMiddleCard = $(e.currentTarget).attr('id') // the value of card in middle array
-				console.log('middle card was clicked')
+				// console.log('middle card was clicked')
 			} else if ($(e.currentTarget).parent().attr('class') === 'pile') {
 				selectedCard = $(e.currentTarget).attr('id')
 				selectedPile = $(e.currentTarget).parent().attr('id')
-				console.log('regular card was clicked')
+				// console.log('regular card was clicked')
 			}
 			return click = true
 		}
@@ -230,10 +248,10 @@ $(() => {
 		if ($(e.currentTarget).parent().attr('class') === 'pile') {
 			selectedCard = $(e.currentTarget).attr('id')
 			selectedPile = $(e.currentTarget).parent().attr('id')
-			console.log('regular card was clicked')
+			// console.log('regular card was clicked')
 		} else if ($(e.currentTarget).parent().attr('id') === 'drawPiles') {
 			selectedMiddleCard = $(e.currentTarget).attr('id') // the value of card in middle array
-			console.log('middle card was clicked')
+			// console.log('middle card was clicked')
 		}
 		
 		swap(selectedMiddleCard, selectedCard, selectedPile)
