@@ -19,6 +19,6 @@ const businessSchema = new Schema ({
 }, timestamps: true)
 
 // Create model
-const Business = mongoose.model('business', businessSchema)
+const Business = mongoose.model('Business', businessSchema)
 
 module.exports = Business
