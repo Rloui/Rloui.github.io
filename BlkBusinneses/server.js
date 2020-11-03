@@ -12,7 +12,7 @@ const PORT = 3000
 // ************
 
 // Use Controller
-app.use('blk', businessController)
+app.use('/blk', businessController)
 
 // ************
 // Globl Configuration

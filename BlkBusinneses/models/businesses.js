@@ -16,7 +16,7 @@ const businessSchema = new Schema ({
     email: String,
     website: String,
     image: String
-}, timestamps: true)
+}, {timestamps: true})
 
 // Create model
 const Business = mongoose.model('Business', businessSchema)
