@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Page</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Index of Businesses</h1>
+        <ul>
+            <% for (let i = 0; i < business.length; i++) { %>
+                <li>
+                    <a href="/blk/:<%= business[i].id %> ">
+                        <h3><%= business[i].name %> </h3>
+                        <img src="<%= business[i].image %>" alt="business image">
+                    </a>
+                </li> 
+            <% } %> 
+        </ul>
+    </div>
+</body>
+</html>

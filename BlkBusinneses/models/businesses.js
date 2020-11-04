@@ -15,7 +15,8 @@ const businessSchema = new Schema ({
     phone: String,
     email: String,
     website: String,
-    image: String
+    image: String,
+    tags: String
 }, {timestamps: true})
 
 // Create model
