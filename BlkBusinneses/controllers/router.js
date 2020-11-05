@@ -30,7 +30,11 @@ router.get('/', (req, res) => {
 
 // Delete Route
 router.delete('/:id', (req, res) => {
-    res.send('deleting')
+    Business.findByIdAndRemove(req.params.id, {useFindAndModify: false}, (err, deletedObject) => {
+        if (err) console.log(err.message)
+        console.log('Deleted Object ' + deletedObject)
+        res.redirect('/blk/')
+    })
 })
 
 // Show Route

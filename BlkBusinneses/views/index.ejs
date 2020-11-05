@@ -15,7 +15,7 @@
                         <h3><%= business[i].name %> </h3>
                         <img src="<%= business[i].image %>" alt="business image">
                     </a>
-                    <form action="/<%= business[i].id %>?_method=DELETE" method="POST">
+                    <form action="/blk/<%= business[i].id %>?_method=DELETE" method="POST">
                         <input type="submit" name="DELETE" id="" value="DELETE">
                     </form>
                 </li> 
