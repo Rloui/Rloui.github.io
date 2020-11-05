@@ -1,24 +1,31 @@
-// ************
+// ************************************************
 // Dependencies
-// ************
+// ************************************************
 const express = require('express')
 const Business = require('../models/businesses')
 const businessSeed = require('../models/businessSeed.js')
 const methodOverride = require('method-override')
 
-
-// ************
+// ************************************************
 // Globl Configuration
-// ************
+// ************************************************
 const router = express.Router()
 
-// ************
+// ************************************************
 // Middleware
-// ************
+// ************************************************
+
+// Method Override
 router.use(methodOverride('_method'))
 
+// Body Parser
+router.use(express.urlencoded({ extended: true }))
+router.use(express.json())
 
-//Routes
+// ************************************************
+// Routes
+// ************************************************
+
 // Index Route
 router.get('/', (req, res) => {
     Business.find({}, (err, allBusinesses) => {
@@ -42,7 +49,10 @@ router.get('/new/', (req, res) => {
 })
 
 // Create Route
-router.get()
+router.post('/', (req, res) => {
+    console.log(req.body)
+    res.send(req.body)
+})
 
 // Delete Route
 router.delete('/:id', (req, res) => {

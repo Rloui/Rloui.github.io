@@ -4,7 +4,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const businessController = require('./controllers/router.js')
-const methodOverride = require('method-override')
+// const methodOverride = require('method-override')
 const app = express()
 const PORT = 3000
 
@@ -14,9 +14,6 @@ const PORT = 3000
 
 // Use Controller
 app.use('/blk', businessController)
-
-// Method Override
-app.use(methodOverride('_method'))
 
 // ************
 // Globl Configuration
