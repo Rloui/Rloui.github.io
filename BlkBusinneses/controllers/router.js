@@ -57,6 +57,17 @@ router.post('/', (req, res) => {
     })
 })
 
+// Edit Route
+router.get('/:id/edit', (req, res) => {
+    Business.findById(req.params.id, (err, foundBusiness) => {
+        if (err) console.log(err.message)
+        console.log('found business ' + foundBusiness)
+        res.render('edit.ejs', {
+            selectBusiness: foundBusiness
+        })
+    })
+})
+
 // Delete Route
 router.delete('/:id', (req, res) => {
     Business.findByIdAndRemove(req.params.id, {useFindAndModify: false}, (err, deletedObject) => {
