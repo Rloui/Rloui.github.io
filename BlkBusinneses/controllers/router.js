@@ -28,6 +28,22 @@ router.get('/', (req, res) => {
     })
 }) 
 
+// Seed Route
+router.get('/seed', (req, res) => {
+    Business.create( businessSeed, (err, dataCreated)=>{
+        console.log(dataCreated)
+        res.redirect('/blk');
+    })
+});
+
+// New Route
+router.get('/new/', (req, res) => {
+    res.render('new.ejs')
+})
+
+// Create Route
+router.get()
+
 // Delete Route
 router.delete('/:id', (req, res) => {
     Business.findByIdAndRemove(req.params.id, {useFindAndModify: false}, (err, deletedObject) => {
@@ -47,13 +63,5 @@ router.get('/:id', (req, res) => {
         })
     })
 })
-
-// Seed Route
-router.get('/seed', (req, res) => {
-    Business.create( businessSeed, (err, dataCreated)=>{
-        console.log(dataCreated)
-        res.redirect('/blk');
-    })
-});
 
 module.exports = router
