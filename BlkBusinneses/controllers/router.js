@@ -50,8 +50,11 @@ router.get('/new/', (req, res) => {
 
 // Create Route
 router.post('/', (req, res) => {
-    console.log(req.body)
-    res.send(req.body)
+    Business.create(req.body, (err, createdBusiness) => {
+        if (err) console.log(err.message)
+        console.log('created ' + createdBusiness)
+        res.redirect('/blk/')
+    })
 })
 
 // Delete Route
