@@ -24,6 +24,17 @@ router.get('/', (req, res) => {
     })
 }) 
 
+// Show Route
+router.get('/:id', (req, res) => {
+    Business.findById(req.params.id, (err, foundBusiness) => {
+        if (err) console.log(err.message)
+        console.log('Found Business ' + foundBusiness)
+        res.render('show.ejs', {
+            selectBusiness: foundBusiness
+        })
+    })
+})
+
 // Seed Route
 router.get('/seed', (req, res) => {
     Business.create( businessSeed, (err, dataCreated)=>{
