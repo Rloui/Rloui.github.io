@@ -25,7 +25,7 @@ app.use('/blk', businessController)
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/' + 'business'
 const db = mongoose.connection
 
-// Connect to Mongo
+// Connect to Mongo 
 mongoose.connect(
 	MONGODB_URI, {
 		useFindAndModify: false,
