@@ -22,12 +22,12 @@ app.use('/blk', businessController)
 // ************
 // Globl Configuration
 // ************
-const mongoURI = process.env.mongoURI || 'mongodb://localhost:27017/' + 'business'
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/' + 'business'
 const db = mongoose.connection
 
 // Connect to Mongo
 mongoose.connect(
-	mongoURI, {
+	MONGODB_URI, {
 		useFindAndModify: false,
 		useNewUrlParser: true,
 		useUnifiedTopology: true
@@ -35,6 +35,9 @@ mongoose.connect(
 		console.log('the connection with mongod is established')
 	}
 )
+
+// open the connection to mongo
+db.on('open' , ()=>{})
 
 // Connection Error/Success
 // Define callback functions for various events
