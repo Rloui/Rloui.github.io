@@ -4,15 +4,19 @@
 const express = require('express')
 const Business = require('../models/businesses')
 const businessSeed = require('../models/businessSeed.js')
+const methodOverride = require('method-override')
 
-// ************
-// Middleware
-// ************
 
 // ************
 // Globl Configuration
 // ************
 const router = express.Router()
+
+// ************
+// Middleware
+// ************
+router.use(methodOverride('_method'))
+
 
 //Routes
 // Index Route
@@ -23,6 +27,11 @@ router.get('/', (req, res) => {
         })
     })
 }) 
+
+// Delete Route
+router.delete('/:id', (req, res) => {
+    res.send('deleting')
+})
 
 // Show Route
 router.get('/:id', (req, res) => {
