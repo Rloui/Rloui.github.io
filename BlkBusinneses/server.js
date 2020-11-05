@@ -4,9 +4,13 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const businessController = require('./controllers/router.js')
-// const methodOverride = require('method-override')
 const app = express()
-const PORT = 3000
+
+// ************
+// Port
+// ************
+// Allow use of Heroku's port or your own local port, depending on the environment
+const PORT = process.env.PORT || 3000
 
 // ************
 // Middleware
@@ -18,7 +22,7 @@ app.use('/blk', businessController)
 // ************
 // Globl Configuration
 // ************
-const mongoURI = 'mongodb://localhost:27017/' + 'business'
+const mongoURI = process.env.mongoURI || 'mongodb://localhost:27017/' + 'business'
 const db = mongoose.connection
 
 // Connect to Mongo

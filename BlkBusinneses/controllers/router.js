@@ -19,9 +19,11 @@ const router = express.Router()
 router.use(methodOverride('_method'))
 
 // Body Parser
-router.use(express.urlencoded({ extended: true }))
+router.use(express.urlencoded({ extended: false }))
 router.use(express.json())
 
+//use public folder for static assets
+router.use(express.static('public'))
 // ************************************************
 // Routes
 // ************************************************
@@ -74,7 +76,7 @@ router.put('/:id', (req, res) => {
     Business.findByIdAndUpdate(req.params.id, req.body,{new: true}, (err, updatedBusiness) => {
         if (err) console.log(err.message)
         console.log('updated Business '+ updatedBusiness)
-        res.send(updatedBusiness)
+        res.redirect('/blk/')
     })
 })
 
