@@ -68,6 +68,16 @@ router.get('/:id/edit', (req, res) => {
     })
 })
 
+// Update Route
+router.put('/:id', (req, res) => {
+    console.log(req.body)
+    Business.findByIdAndUpdate(req.params.id, req.body,{new: true}, (err, updatedBusiness) => {
+        if (err) console.log(err.message)
+        console.log('updated Business '+ updatedBusiness)
+        res.send(updatedBusiness)
+    })
+})
+
 // Delete Route
 router.delete('/:id', (req, res) => {
     Business.findByIdAndRemove(req.params.id, {useFindAndModify: false}, (err, deletedObject) => {

@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Edit Page</h1>
-    <form action="/<%= selectBusiness.id %>?_method=PUT " method="POST">
+    <form action="/blk/<%= selectBusiness.id %>?_method=PUT " method="POST">
         Name: <input type="text" name="name" id="" value="<%= selectBusiness.name %>">
         Location: <input type="text" name="location" id="" value="<%= selectBusiness.location %>">
         Owners: <input type="text" name="owners" id="" value="<%= selectBusiness.owners %>">
