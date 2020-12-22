@@ -1,6 +1,8 @@
-.container {
+html {
     background: linear-gradient(0deg, rgba(26,35,35,1) 0%, rgba(46,130,131,1) 100%);
-    background-size: cover;
+}
+
+.container {
     text-align: center;
     color:  #c3ced9;
 }
