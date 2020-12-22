@@ -180,6 +180,8 @@ $(() => {
 			}
 		}
 		// console.log(playerOne.hand[0][0].suit) 
+		// i: 0 - 6
+		// j: 0 - 4
 	}
 	renderCards()
 	
@@ -201,7 +203,7 @@ $(() => {
 		///// Removing the class fixes the double class issue that messed up the render
 		///////////////////////////
 		$('.suit' + middleIndex).removeClass('suit' + middleCards[middleIndex].suit)
-		$('.pileSuit' + cardIndex).removeClass('suit' + playerOne.hand[pile][cardIndex].suit) // pile doesn't work => card index is not supposed to be in the beginning of this, the way the counter renders cards going from 0 to 23 in conjunction with the classes that have that throws everything off <<<==== because of the counting convention NEW PROBLEM
+		$('.pileSuit' + pile).removeClass('suit' + playerOne.hand[pile][cardIndex].suit) // pile doesn't work => card index is not supposed to be in the beginning of this, the way the counter renders cards going from 0 to 23 in conjunction with the classes that have that throws everything off <<<==== because of the counting convention NEW PROBLEM
 
 
 
