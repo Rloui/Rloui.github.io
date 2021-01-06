@@ -23,6 +23,9 @@ body {
   line-height: 1.7;
   color: #777; }
 
+#particles-js {
+  background-color: firebrick; }
+
 .row {
   max-width: 114rem;
   margin: 0 auto; }
