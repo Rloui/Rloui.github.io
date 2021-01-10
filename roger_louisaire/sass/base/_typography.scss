@@ -35,3 +35,44 @@
         // animation: name duration timing-function delay iteration-count direction fill-mode;
     }
 }
+
+.heading-secondary {
+    font-size: 6.4rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    display: inline-block;
+    letter-spacing: 1.2;
+    // word-spacing: 2rem;
+
+    &::after {
+        content: "";
+        display: block;
+        height: 3px;
+        background-color: $color-primary;
+        width: 60%;
+        margin: 0 auto;
+        margin-top: 1.2rem;
+    }
+}
+
+.heading-tertiary {
+    font-size: 3.2rem;
+    display: inline-block;
+    font-weight: 400;
+    // text-transform: uppercase;
+
+    &::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background-color: $color-secondary;
+        width: 60%;
+        margin: 0 auto;
+        margin-top: 1.2rem;
+    }
+}
+
+.paragraph {
+    font-size: 1.8rem;
+    text-align: left;
+}

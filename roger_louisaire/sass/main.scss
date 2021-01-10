@@ -5,8 +5,9 @@
 @import "sass/base/base";
 @import "sass/base/animations";
 @import "sass/base/typography";
-// @import "sass/base/utilities";
+@import "sass/base/utilities";
 
+@import "sass/components/aboutme";
 @import "sass/components/button";
 @import "sass/components/particles";
 
@@ -14,4 +15,4 @@
 @import "sass/layout/header";
 @import "sass/layout/navigation";
 
-// @import "sass/pages/home";
+@import "sass/pages/home";
