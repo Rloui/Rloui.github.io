@@ -10,14 +10,14 @@
         border-radius: 10rem;
         border: none;
         cursor: pointer;
-        transition: all .2s;
+        // transition: all 6s;
         position: relative;
     }
 
     span {
         display: inline-block;
         font-size: 3rem;
-        transition: all .8s;
+        transition: all .5s;
     }
 
     &:hover {

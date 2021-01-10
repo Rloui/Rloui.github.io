@@ -23,6 +23,28 @@ body {
     opacity: 1;
     transform: translateY(0); } }
 
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
 * body,
 *::before body,
 *::after body {
@@ -37,12 +59,14 @@ body {
   .heading-primary--main {
     font-size: 7.2rem;
     display: block;
-    letter-spacing: 1.2rem; }
+    letter-spacing: 1.2rem;
+    animation: fadeIn 3s ease-out; }
   .heading-primary--sub {
     font-size: 3.6rem;
     font-weight: 300;
     display: inline-block;
-    margin-top: 3.8rem; }
+    margin-top: 3.8rem;
+    animation: fadeIn 3s ease-out; }
 
 .btn, .btn:link, .btn:visited {
   text-transform: uppercase;
@@ -53,13 +77,12 @@ body {
   border-radius: 10rem;
   border: none;
   cursor: pointer;
-  transition: all .2s;
   position: relative; }
 
 .btn span {
   display: inline-block;
   font-size: 3rem;
-  transition: all .8s; }
+  transition: all .5s; }
 
 .btn:hover {
   transform: translateY(-2px);

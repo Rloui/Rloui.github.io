@@ -20,6 +20,9 @@
         display: block;
         letter-spacing: 1.2rem;
         
+        
+        animation: fadeIn 3s ease-out;
+        
     }
 
     &--sub {
@@ -27,5 +30,8 @@
         font-weight: 300;
         display: inline-block;
         margin-top: 3.8rem;
+
+        animation: fadeIn 3s ease-out;
+        // animation: name duration timing-function delay iteration-count direction fill-mode;
     }
 }
