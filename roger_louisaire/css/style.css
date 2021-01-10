@@ -87,6 +87,11 @@ body {
   font-size: 3.2rem;
   display: inline-block;
   font-weight: 400; }
+  .heading-tertiary__tech-summary {
+    font-size: 3.2rem;
+    display: inline-block;
+    font-weight: 400;
+    color: #eee; }
   .heading-tertiary::after {
     content: "";
     display: block;
@@ -132,7 +137,7 @@ body {
   .aboutme__photo {
     width: 80%;
     border-radius: 1rem;
-    margin: auto 0; }
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
 
 .btn, .btn:link, .btn:visited {
   text-transform: uppercase;
@@ -185,7 +190,7 @@ body {
   transition: all .4s; }
 
 .btn--animated {
-  animation: moveInBottom .75s ease-out 3.0s;
+  animation: moveInBottom .75s ease-out 2.0s;
   animation-fill-mode: backwards; }
 
 .btn__image {
@@ -193,6 +198,32 @@ body {
 
 #particles-js {
   background-color: rgba(11, 96, 224, 0.9); }
+
+.tech-summary {
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  transition: all .5s; }
+  .tech-summary:hover {
+    background-color: #ea6332;
+    transform: translateY(-2px); }
+    .tech-summary:hover .tech-summary__icon {
+      transform: scale(1.2); }
+  .tech-summary__list {
+    color: #212121;
+    list-style: none;
+    font-size: 1.8rem;
+    text-align: center;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.5);
+    background-image: linear-gradient(to right bottom, #fcfcff, rgba(234, 99, 50, 0.2));
+    border-radius: 3px; }
+  .tech-summary__image-container {
+    margin: 0 auto;
+    height: 10rem;
+    width: 10rem; }
+  .tech-summary__icon {
+    width: 100%;
+    transition: all .5s; }
 
 .row {
   max-width: 114rem;
@@ -238,4 +269,8 @@ body {
 
 .section__about {
   background-color: #fcfcff;
+  padding: 15rem 0; }
+
+.section-tech-summary {
+  background-color: rgba(11, 96, 224, 0.9);
   padding: 15rem 0; }

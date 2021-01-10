@@ -61,6 +61,13 @@
     font-weight: 400;
     // text-transform: uppercase;
 
+    &__tech-summary {
+        font-size: 3.2rem;
+        display: inline-block;
+        font-weight: 400;
+        color: $color-text-secondary;
+    }
+
     &::after {
         content: "";
         display: block;
