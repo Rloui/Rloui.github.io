@@ -238,7 +238,7 @@ body {
     .resume-contact__image-container:hover .resume-contact__photo {
       transform: translateY(-3px);
       filter: blur(0.4px);
-      background-image: url("img/resume_screenshot.png"); }
+      background-image: url("../../img/resume_screenshot.png"); }
     .resume-contact__image-container:hover .resume-contact__image-container-link {
       opacity: 1;
       visibility: visible; }
@@ -246,7 +246,7 @@ body {
     width: 100%;
     height: 100%;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
-    background-image: linear-gradient(rgba(252, 252, 255, 0.3), rgba(0, 0, 0, 0.2) 0%), url("img/resume_screenshot.png");
+    background-image: linear-gradient(rgba(252, 252, 255, 0.3), rgba(0, 0, 0, 0.2) 0%), url("../../img/resume_screenshot.png");
     background-size: cover;
     border-radius: 3px;
     transition: all .5s; }
