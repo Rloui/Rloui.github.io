@@ -3,7 +3,8 @@
 *::after {
   margin: 0;
   padding: 0;
-  box-sizing: inherit; }
+  box-sizing: inherit;
+  border: 1px solid goldenrod; }
 
 html {
   font-size: 62.5%; }
@@ -199,6 +200,21 @@ body {
 #particles-js {
   background-color: rgba(11, 96, 224, 0.9); }
 
+.app-screenshot__flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly; }
+  .app-screenshot__flex:not(:last-child) {
+    margin-bottom: 20rem; }
+
+.app-screenshot__container {
+  width: 43rem;
+  height: 24rem;
+  text-align: center; }
+
+.app-screenshot__photo {
+  width: 100%; }
+
 .section-technologies__image-flexbox {
   display: flex;
   flex-direction: row;
@@ -288,17 +304,20 @@ body {
 
 .section__about {
   background-color: #fcfcff;
-  padding: 15rem 0;
-  clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%); }
+  padding: 15rem 0 21rem 0;
+  clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+  margin-bottom: -6rem; }
 
 .section-tech-summary {
   background-color: rgba(11, 96, 224, 0.9);
-  padding: 25rem 0;
-  margin-top: -6rem;
-  margin-bottom: -15rem; }
+  padding: 20rem 0; }
 
 .section-technologies {
   background-color: #fff;
-  padding: 15rem 0;
-  clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
-  margin-top: -8rem; }
+  padding: 22rem 0 15rem 0;
+  clip-path: polygon(0 6%, 100% 0, 100% 100%, 0 100%);
+  margin-top: -7rem; }
+
+.section-projects {
+  background-color: #fcfcff;
+  padding: 15rem 0; }

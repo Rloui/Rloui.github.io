@@ -1,0 +1,22 @@
+.app-screenshot {
+
+    &__flex {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        
+        &:not(:last-child) {
+            margin-bottom: 20rem;
+        }
+    }
+    
+    &__container {
+        width: 43rem;
+        height: 24rem;
+        text-align: center;
+    }
+
+    &__photo {
+        width: 100%;
+    }
+}
