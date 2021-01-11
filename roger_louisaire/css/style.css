@@ -253,6 +253,8 @@ body {
   .resume-contact__link {
     margin-top: 10rem;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+    .resume-contact__link spanicon {
+      font-size: 3.5rem; }
   .resume-contact p {
     margin-top: 15rem;
     text-align: center; }
