@@ -238,7 +238,7 @@ body {
     .resume-contact__image-container:hover .resume-contact__photo {
       transform: translateY(-3px);
       filter: blur(0.4px);
-      background-image: url("../../img/resume_screenshot.png"); }
+      background-image: url("../img/resume_screenshot.png"); }
     .resume-contact__image-container:hover .resume-contact__image-container-link {
       opacity: 1;
       visibility: visible; }
