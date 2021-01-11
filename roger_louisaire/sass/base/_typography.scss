@@ -42,7 +42,12 @@
     font-weight: 300;
     display: inline-block;
     letter-spacing: 1.2;
+    // color: $color-text-heading;
     // word-spacing: 2rem;
+
+    &--resume-contact {
+        color: $color-text-secondary;
+    }
 
     &::after {
         content: "";
@@ -82,4 +87,9 @@
 .paragraph {
     font-size: 1.8rem;
     text-align: left;
+
+    &-white {
+        color: $color-text-secondary;
+        font-weight: 700;
+    }
 }
