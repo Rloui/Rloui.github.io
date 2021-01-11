@@ -21,7 +21,7 @@
         font-size: $default-font-size;
         text-align: center;
         box-shadow: 0 1rem 3rem rgba($color-black, .5);
-        background-image: linear-gradient(to right bottom,$color-background-light, rgba($color-secondary-light, .2));
+        background-image: linear-gradient(to right bottom,rgba($color-white, 1), rgba($color-primary-light, .1));
         border-radius: 3px;
     }
 
