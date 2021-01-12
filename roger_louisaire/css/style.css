@@ -353,6 +353,8 @@ body {
   .footer__icon {
     transform: translateY(6px);
     margin-right: 1rem; }
+  .footer__githubio-link {
+    color: #333; }
 
 .row {
   max-width: 114rem;

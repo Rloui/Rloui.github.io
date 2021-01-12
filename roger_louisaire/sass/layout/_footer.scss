@@ -72,4 +72,8 @@
         transform: translateY(6px);
         margin-right: 1rem;
     }
+
+    &__githubio-link {
+        color: $color-background-dark;
+    }
 }
