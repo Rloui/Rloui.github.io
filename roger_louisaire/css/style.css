@@ -246,7 +246,7 @@ body {
     width: 100%;
     height: 100%;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
-    background-image: linear-gradient(rgba(252, 252, 255, 0.3), rgba(0, 0, 0, 0.2) 0%), url("../../img/resume_screenshot.png");
+    background-image: linear-gradient(rgba(252, 252, 255, 0.3), rgba(0, 0, 0, 0.2) 0%), url("../img/resume_screenshot.png");
     background-size: cover;
     border-radius: 3px;
     transition: all .5s; }
@@ -282,7 +282,7 @@ body {
 
 .tech-summary {
   text-align: center;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(51, 51, 51, 0.2);
   background-color: transparent;
   border-radius: 3px;
   transition: all .5s; }
@@ -309,6 +309,50 @@ body {
   .tech-summary__icon {
     width: 100%;
     transition: all .5s; }
+
+.footer {
+  background-color: #333;
+  padding: 10rem 0;
+  font-size: 1.4rem;
+  color: #eee; }
+  .footer__logo-box {
+    text-align: center;
+    margin-bottom: 6rem; }
+  .footer__logo {
+    width: 15rem;
+    height: auto; }
+  .footer__copyright {
+    text-align: center;
+    margin-bottom: 4rem;
+    color: #555; }
+  .footer__list {
+    list-style: none;
+    text-align: center;
+    margin-top: 1rem; }
+  .footer__item {
+    display: inline-block; }
+    .footer__item:not(:last-child) {
+      margin-right: 3rem; }
+  .footer__link:link, .footer__link:visited {
+    padding: 1.25rem 1.5rem;
+    background-color: #222;
+    color: #777;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 3px;
+    transition: all 1s; }
+  .footer__link:hover, .footer__link:active {
+    box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px); }
+  .footer__link-linkedin:hover {
+    color: #eee;
+    background-color: #2867B2; }
+  .footer__link-github:hover {
+    color: #211F1F;
+    background-color: #FFFFFF; }
+  .footer__icon {
+    transform: translateY(6px);
+    margin-right: 1rem; }
 
 .row {
   max-width: 114rem;
