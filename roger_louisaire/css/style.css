@@ -108,7 +108,8 @@ body {
   text-align: left; }
   .paragraph-white {
     color: #eee;
-    font-weight: 700; }
+    font-weight: 700;
+    font-size: 2.3rem; }
 
 .u-center-text {
   text-align: center; }
@@ -255,8 +256,11 @@ body {
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
     .resume-contact__link spanicon {
       font-size: 3.5rem; }
+  .resume-contact__text {
+    width: 70%;
+    margin: 0 auto; }
   .resume-contact p {
-    margin-top: 15rem;
+    margin-top: 5rem;
     text-align: center; }
   .resume-contact h3 {
     color: #eee; }
@@ -388,7 +392,7 @@ body {
     position: absolute;
     top: 4rem;
     left: 12rem; }
-  .header__logo {
+  .header__logo-white {
     height: 4rem; }
   .header__text-box {
     position: absolute;
@@ -396,6 +400,35 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center; }
+
+.navigation__nav {
+  height: 12vh;
+  position: relative; }
+
+.navigation__list {
+  list-style: none;
+  position: absolute;
+  right: 0;
+  vertical-align: text-bottom;
+  margin-top: 5rem; }
+
+.navigation__item {
+  display: inline-block;
+  margin-right: 7rem; }
+  .navigation__item:last-child {
+    margin-right: 12rem; }
+
+.navigation__link:link, .navigation__link:visited {
+  text-decoration: none;
+  color: #eee;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  padding: .8rem 0;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom 0.2s; }
+
+.navigation__link:hover, .navigation__link:active {
+  border-bottom: 2px solid #e34e17; }
 
 .section__about {
   background-color: #fcfcff;
