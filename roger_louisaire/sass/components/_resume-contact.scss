@@ -53,8 +53,14 @@
         }
     }
 
+    &__text {
+        width: 70%;
+        margin: 0 auto;
+        // border-radius: 1px solid black;
+    }
+
     p {
-        margin-top: 15rem;
+        margin-top: 5rem;
         text-align: center;
     }
 
